@@ -1,15 +1,14 @@
-import { MantineProvider, Text } from "@mantine/core";
 import { HeaderMegaMenu } from "./Components/Header/Header";
 import Home from "./Pages/Home/Home";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { About } from "./Pages/About/About";
+import { HowItWorks } from "./Pages/HowItWorks/HowItWorks";
 const App = () => {
   return (
     <BrowserRouter>
       <HeaderMegaMenu />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
+        <Route path="/howitworks" element={<HowItWorks />} />
       </Routes>
     </BrowserRouter>
   );

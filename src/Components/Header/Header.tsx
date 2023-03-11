@@ -199,67 +199,10 @@ export function HeaderMegaMenu() {
             <Link to={"/"} className={classes.link}>
               Home
             </Link>
-            <Link to={"/about"} className={classes.link}>
-              About
-            </Link>
-            {/* <a href="/" className={classes.link}></a> */}
-            {/* <a href="#" className={classes.link}>
+            <Link to={"/howitworks"} className={classes.link}>
               How It Works
-            </a> */}
-            {/* <HoverCard
-              width={600}
-              position="bottom"
-              radius="md"
-              shadow="md"
-              withinPortal
-            >
-              <HoverCard.Target>
-                <a href="#" className={classes.link}>
-                  <Center inline>
-                    <Box component="span" mr={5}>
-                      Features
-                    </Box>
-                    <IconChevronDown
-                      size={16}
-                      color={theme.fn.primaryColor()}
-                    />
-                  </Center>
-                </a>
-              </HoverCard.Target>
+            </Link>
 
-              <HoverCard.Dropdown sx={{ overflow: "hidden" }}>
-                <Group position="apart" px="md">
-                  <Text fw={500}>Features</Text>
-                  <Anchor href="#" fz="xs">
-                    View all
-                  </Anchor>
-                </Group>
-
-                <Divider
-                  my="sm"
-                  mx="-md"
-                  color={theme.colorScheme === "dark" ? "dark.5" : "gray.1"}
-                />
-
-                <SimpleGrid cols={2} spacing={0}>
-                  {links}
-                </SimpleGrid>
-
-                <div className={classes.dropdownFooter}>
-                  <Group position="apart">
-                    <div>
-                      <Text fw={500} fz="sm">
-                        Get started
-                      </Text>
-                      <Text size="xs" color="dimmed">
-                        Their food sources have decreased, and their numbers
-                      </Text>
-                    </div>
-                    <Button variant="default">Get started</Button>
-                  </Group>
-                </div>
-              </HoverCard.Dropdown>
-            </HoverCard> */}
             <a href="#" className={classes.link}>
               Top Products
             </a>
@@ -302,9 +245,10 @@ export function HeaderMegaMenu() {
             color={theme.colorScheme === "dark" ? "dark.5" : "gray.1"}
           />
 
-          <a href="#" className={classes.link}>
+          <Link to={"/"} className={classes.link}>
             Home
-          </a>
+          </Link>
+
           {/* <UnstyledButton className={classes.link} onClick={toggleLinks}>
             <Center inline>
               <Box component="span" mr={5}>
@@ -314,9 +258,9 @@ export function HeaderMegaMenu() {
             </Center>
           </UnstyledButton> */}
           <Collapse in={linksOpened}>{links}</Collapse>
-          <a href="#" className={classes.link}>
+          <Link to={"/howitworks"} className={classes.link}>
             How It Works
-          </a>
+          </Link>
           <a href="#" className={classes.link}>
             Top Products
           </a>
@@ -331,7 +275,8 @@ export function HeaderMegaMenu() {
 
           <Group position="center" grow pb="xl" px="md">
             <Button variant="default" className={classes.loginBtn}>
-              <img src={globe} alt="globe" />
+              {/* <img src={globe} alt="globe" /> */}
+              <IconWorld stroke={"1"} />
             </Button>
             <Button variant="default" className={classes.loginBtn}>
               Log in

@@ -104,7 +104,7 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-export function About() {
+export function HowItWorks() {
   const { classes, cx } = useStyles();
   let list = {
     image: img1,
