@@ -203,7 +203,7 @@ export function HeaderMegaMenu() {
               How It Works
             </Link>
 
-            <a href="#" className={classes.link}>
+            <a href={"/top-products"} className={classes.link}>
               Top Products
             </a>
             <a href="#" className={classes.link}>
@@ -261,7 +261,7 @@ export function HeaderMegaMenu() {
           <Link to={"/howitworks"} className={classes.link}>
             How It Works
           </Link>
-          <a href="#" className={classes.link}>
+          <a href={"/top-products"} className={classes.link}>
             Top Products
           </a>
           <a href="#" className={classes.link}>
