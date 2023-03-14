@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { HowItWorks } from "./Pages/HowItWorks/HowItWorks";
 import TopProducts from "./Pages/Top Products/TopProducts";
 import { Footer } from "./Components/Footer/Footer";
+import ContactBox from "./Components/ContactBox/ContactBox";
 const App = () => {
   let footerData = {
     data: [
@@ -80,6 +81,7 @@ const App = () => {
         <Route path="/howitworks" element={<HowItWorks />} />
         <Route path="/top-products" element={<TopProducts />} />
       </Routes>
+      <ContactBox />
       <Footer data={footerData.data} />
     </BrowserRouter>
   );

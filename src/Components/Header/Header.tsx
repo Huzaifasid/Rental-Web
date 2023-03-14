@@ -39,14 +39,15 @@ const useStyles = createStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     height: "100%",
+
     paddingLeft: theme.spacing.md,
     paddingRight: theme.spacing.md,
     textDecoration: "none",
+
     color: theme.colorScheme === "dark" ? theme.white : theme.black,
     // color: "grey",
     fontWeight: 500,
     fontSize: theme.fontSizes.sm,
-
     [theme.fn.smallerThan("sm")]: {
       height: rem(42),
       display: "flex",
@@ -202,7 +203,14 @@ export function HeaderMegaMenu() {
             <Link to={"/howitworks"} className={classes.link}>
               How It Works
             </Link>
-
+            {/* <UnstyledButton className={classes.link} onClick={toggleLinks}>
+              <Center inline>
+                <Box component="span" mr={5}>
+                  Categories
+                </Box>
+                <IconChevronDown size={16} color={theme.fn.primaryColor()} />
+              </Center>
+            </UnstyledButton> */}
             <a href={"/top-products"} className={classes.link}>
               Top Products
             </a>

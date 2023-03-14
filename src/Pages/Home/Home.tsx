@@ -1,11 +1,7 @@
-import React from "react";
 import { Button, createStyles, Group, Input, Tooltip } from "@mantine/core";
-import {
-  IconAlertCircle,
-  IconArmchair,
-  IconCategory,
-  IconSearch,
-} from "@tabler/icons-react";
+import { IconArmchair, IconCategory, IconSearch } from "@tabler/icons-react";
+import SearchBar from "../../Components/SearchBar/SearchBar";
+import AllProducts from "../All Products/AllProducts";
 import { HeroSectionHome } from "./HeroSection/HeroSection";
 import HeroSection2 from "./HeroSection2/HeroSection2";
 
@@ -41,6 +37,7 @@ const Home = () => {
   const { classes, theme } = useStyles();
   return (
     <>
+      <SearchBar />
       <Group pb="xl" px="md" className={classes.group}>
         <Button className={classes.catBtn}>
           <IconCategory />
@@ -60,6 +57,7 @@ const Home = () => {
 
       <HeroSectionHome />
       <HeroSection2 />
+      <AllProducts />
     </>
   );
 };
