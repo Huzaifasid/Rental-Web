@@ -7,9 +7,11 @@ import {
   ActionIcon,
   createStyles,
 } from "@mantine/core";
+import { useNavigate } from "react-router";
 
 const useStyles = createStyles((theme) => ({
   card: {
+    cursor: "pointer",
     backgroundColor:
       theme.colorScheme === "dark" ? theme.colors.dark[7] : theme.white,
   },
@@ -31,7 +33,8 @@ const useStyles = createStyles((theme) => ({
   },
 
   like: {
-    color: theme.colors.red[6],
+    // color: theme.colors.red[6],
+    color: "#D9DCDF",
   },
 
   label: {
@@ -50,9 +53,17 @@ interface BadgeCardProps {
 
 export function ProductCard({ image, title, description }: BadgeCardProps) {
   const { classes, theme } = useStyles();
+  const navigate = useNavigate();
 
   return (
-    <Card withBorder radius="md" p="md" mt={"60px"} className={classes.card}>
+    <Card
+      withBorder
+      radius="md"
+      p="md"
+      mt={"60px"}
+      className={classes.card}
+      onClick={() => navigate("/product-detail")}
+    >
       <Group position="right">
         <ActionIcon mb={"20px"}>
           <IconHeart size="1.8rem" className={classes.like} stroke={1.5} />

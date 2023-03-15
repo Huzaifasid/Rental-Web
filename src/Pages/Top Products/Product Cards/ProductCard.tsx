@@ -10,9 +10,11 @@ import {
   createStyles,
   rem,
 } from "@mantine/core";
+import { useNavigate } from "react-router";
 
 const useStyles = createStyles((theme) => ({
   card: {
+    cursor: "pointer",
     backgroundColor:
       theme.colorScheme === "dark" ? theme.colors.dark[7] : theme.white,
   },
@@ -34,7 +36,8 @@ const useStyles = createStyles((theme) => ({
   },
 
   like: {
-    color: theme.colors.red[6],
+    // color: theme.colors.red[6],
+    color: "#D9DCDF",
   },
 
   label: {
@@ -63,19 +66,27 @@ export function ProductCard({
   badges,
 }: BadgeCardProps) {
   const { classes, theme } = useStyles();
+  const navigate = useNavigate();
 
-  const features = badges.map((badge) => (
-    <Badge
-      color={theme.colorScheme === "dark" ? "dark" : "gray"}
-      key={badge.label}
-      leftSection={badge.emoji}
-    >
-      {badge.label}
-    </Badge>
-  ));
+  // const features = badges.map((badge) => (
+  //   <Badge
+  //     color={theme.colorScheme === "dark" ? "dark" : "gray"}
+  //     key={badge.label}
+  //     leftSection={badge.emoji}
+  //   >
+  //     {badge.label}
+  //   </Badge>
+  // ));
 
   return (
-    <Card withBorder radius="md" p="md" mt={"60px"} className={classes.card}>
+    <Card
+      withBorder
+      radius="md"
+      p="md"
+      mt={"60px"}
+      className={classes.card}
+      onClick={() => navigate("/product-detail")}
+    >
       <Group position="right">
         {/* <Button radius="md" style={{ flex: 1, display: "none" }}></Button> */}
         <ActionIcon mb={"20px"}>

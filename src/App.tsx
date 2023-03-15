@@ -5,6 +5,7 @@ import { HowItWorks } from "./Pages/HowItWorks/HowItWorks";
 import TopProducts from "./Pages/Top Products/TopProducts";
 import { Footer } from "./Components/Footer/Footer";
 import ContactBox from "./Components/ContactBox/ContactBox";
+import ProductDetail from "./Pages/Product Detail/ProductDetail";
 const App = () => {
   let footerData = {
     data: [
@@ -80,6 +81,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/howitworks" element={<HowItWorks />} />
         <Route path="/top-products" element={<TopProducts />} />
+        <Route path="/product-detail" element={<ProductDetail />} />
       </Routes>
       <ContactBox />
       <Footer data={footerData.data} />

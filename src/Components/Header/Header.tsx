@@ -1,16 +1,12 @@
 import {
   createStyles,
   Header,
-  HoverCard,
   Group,
   Button,
   UnstyledButton,
   Text,
-  SimpleGrid,
   ThemeIcon,
-  Anchor,
   Divider,
-  Center,
   Box,
   Burger,
   Drawer,
@@ -18,7 +14,7 @@ import {
   ScrollArea,
   rem,
 } from "@mantine/core";
-import { MantineLogo } from "@mantine/ds";
+
 import { useDisclosure } from "@mantine/hooks";
 import {
   IconNotification,
@@ -27,12 +23,15 @@ import {
   IconChartPie3,
   IconFingerprint,
   IconCoin,
-  IconChevronDown,
-  IconWorldLongitude,
   IconWorld,
 } from "@tabler/icons-react";
-import globe from "../../Assets/globe.svg";
+
 import { Link, useNavigate } from "react-router-dom";
+
+import { useState } from "react";
+
+import LoginModal from "../../Pages/Login/LoginModal";
+import RegisterModal from "../../Pages/Register/RegisterModal";
 
 const useStyles = createStyles((theme) => ({
   link: {
@@ -158,9 +157,13 @@ const mockdata = [
 export function HeaderMegaMenu() {
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] =
     useDisclosure(false);
+
   const [linksOpened, { toggle: toggleLinks }] = useDisclosure(false);
   const { classes, theme } = useStyles();
 
+  // const [opened, { open, close }] = useDisclosure(false);
+  const [showLogin, setShowLogin] = useState(false);
+  const [showRegister, setShowRegister] = useState(false);
   const links = mockdata.map((item) => (
     <UnstyledButton className={classes.subLink} key={item.title}>
       <Group noWrap align="flex-start">
@@ -211,23 +214,38 @@ export function HeaderMegaMenu() {
                 <IconChevronDown size={16} color={theme.fn.primaryColor()} />
               </Center>
             </UnstyledButton> */}
-            <a href={"/top-products"} className={classes.link}>
+            <Link to={"/top-products"} className={classes.link}>
               Top Products
-            </a>
+            </Link>
             <a href="#" className={classes.link}>
               About Us
             </a>
           </Group>
-
           <Group className={classes.hiddenMobile}>
             <Button variant="default" className={classes.loginBtn}>
               {/* <img src={globe} alt="globe" /> */}
               <IconWorld stroke={"1"} />
             </Button>
-            <Button variant="default" className={classes.loginBtn}>
+
+            <LoginModal show={showLogin} close={() => setShowLogin(false)} />
+            <RegisterModal
+              show={showRegister}
+              close={() => setShowRegister(false)}
+            />
+            <Button
+              variant="default"
+              className={classes.loginBtn}
+              // onClick={open}
+              onClick={() => setShowLogin(true)}
+            >
               Log in
             </Button>
-            <Button className={classes.signUpBtn}>Sign up</Button>
+            <Button
+              className={classes.signUpBtn}
+              onClick={() => setShowRegister(true)}
+            >
+              Sign up
+            </Button>
           </Group>
 
           <Burger
@@ -269,9 +287,9 @@ export function HeaderMegaMenu() {
           <Link to={"/howitworks"} className={classes.link}>
             How It Works
           </Link>
-          <a href={"/top-products"} className={classes.link}>
+          <Link to={"/top-products"} className={classes.link}>
             Top Products
-          </a>
+          </Link>
           <a href="#" className={classes.link}>
             About Us
           </a>
@@ -286,10 +304,19 @@ export function HeaderMegaMenu() {
               {/* <img src={globe} alt="globe" /> */}
               <IconWorld stroke={"1"} />
             </Button>
-            <Button variant="default" className={classes.loginBtn}>
+            <Button
+              variant="default"
+              className={classes.loginBtn}
+              onClick={() => setShowLogin(true)}
+            >
               Log in
             </Button>
-            <Button className={classes.signUpBtn}>Sign up</Button>
+            <Button
+              className={classes.signUpBtn}
+              onClick={() => setShowRegister(true)}
+            >
+              Sign up
+            </Button>
           </Group>
         </ScrollArea>
       </Drawer>
