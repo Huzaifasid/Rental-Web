@@ -27,6 +27,7 @@ import RentedImg1 from "../../Assets/TopRented1.png";
 import RentedImg2 from "../../Assets/TopRented2.png";
 import RentedImg3 from "../../Assets/TopRented3.png";
 import RentedImg4 from "../../Assets/TopRented4.png";
+import { useNavigate } from "react-router";
 
 const TopProducts = () => {
   const useStyles = createStyles((theme) => ({
@@ -70,6 +71,7 @@ const TopProducts = () => {
 
   const { classes, theme } = useStyles();
   const isMobile = useMediaQuery("(max-width: 755px)");
+  const navigate = useNavigate();
   const span = isMobile ? 12 : 3;
   let images = {
     img1: card1img,
@@ -171,7 +173,11 @@ const TopProducts = () => {
         <Group className={classes.group} position="apart" spacing="xl">
           <Links />
 
-          <Button className={classes.btn} radius="md">
+          <Button
+            className={classes.btn}
+            radius="md"
+            onClick={() => navigate("/all-products")}
+          >
             Browse all products
           </Button>
         </Group>
@@ -264,7 +270,7 @@ const TopProducts = () => {
           <Text fz="sm" fw={500} color="#A0A0A7">
             8 of 24 Products
           </Text>
-          <Progress w={"20%"} color="grape" value={30} bg="white" />
+          <Progress w={"20%"} color="grape" value={30} bg="#D9D9D9" />
           <Button variant="default" color="dark" radius="md" mt={"40px"}>
             Load more
           </Button>

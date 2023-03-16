@@ -21,6 +21,7 @@ import icon3 from "../../../Assets/deliveryIcon.png";
 import icon4 from "../../../Assets/giftIcon.png";
 import { DateInput } from "@mantine/dates";
 import { useState } from "react";
+import { useNavigate } from "react-router";
 
 const AddToCart = () => {
   const useStyles = createStyles((theme) => ({
@@ -95,6 +96,7 @@ const AddToCart = () => {
   const { classes, theme } = useStyles();
   const [value, setValue] = useState<Date | null>(null);
   const [value2, setValue2] = useState<Date | null>(null);
+  const navigate = useNavigate();
   let iconArr = [
     { icon: icon1, free: "FREE", underLinetext: "Rental App Care", id: 1 },
     { icon: icon2, text: "Include", underLinetext: "Purchase option", id: 2 },
@@ -174,7 +176,12 @@ const AddToCart = () => {
             </Text>
           </div>
         </div>
-        <Button color="violet" radius="md" mt={"20px"}>
+        <Button
+          color="violet"
+          radius="md"
+          mt={"20px"}
+          onClick={() => navigate("/shopping-cart")}
+        >
           Add to cart
         </Button>
       </div>

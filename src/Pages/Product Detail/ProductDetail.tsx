@@ -41,9 +41,9 @@ const ProductDetail = () => {
         alignItems: "center",
         justifyContent: "center",
       },
-      [theme.fn.largerThan("md")]: {
-        width: "100%",
-      },
+      // [theme.fn.largerThan("md")]: {
+      //   width: "100%",
+      // },
     },
     underthehood: {
       border: "1px solid gray",
@@ -59,9 +59,9 @@ const ProductDetail = () => {
         alignItems: "center",
         justifyContent: "center",
       },
-      [theme.fn.largerThan("md")]: {
-        width: "100%",
-      },
+      // [theme.fn.largerThan("md")]: {
+      //   width: "100%",
+      // },
     },
     flexBox: {
       display: "flex",
@@ -83,9 +83,9 @@ const ProductDetail = () => {
         alignItems: "center",
         justifyContent: "center",
       },
-      [theme.fn.largerThan("md")]: {
-        width: "100%",
-      },
+      // [theme.fn.largerThan("md")]: {
+      //   width: "100%",
+      // },
     },
     frequentlyQ: {
       border: "1px solid gray",
@@ -101,9 +101,9 @@ const ProductDetail = () => {
         alignItems: "center",
         justifyContent: "center",
       },
-      [theme.fn.largerThan("md")]: {
-        width: "100%",
-      },
+      // [theme.fn.largerThan("md")]: {
+      //   width: "100%",
+      // },
     },
     recentlyView: {
       marginTop: "50px",

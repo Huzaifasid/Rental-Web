@@ -7,6 +7,7 @@ import { Footer } from "./Components/Footer/Footer";
 import ContactBox from "./Components/ContactBox/ContactBox";
 import ProductDetail from "./Pages/Product Detail/ProductDetail";
 import ShoppingCart from "./Pages/Shopping Cart/ShoppingCart";
+import AllProducts from "./Pages/All Products/AllProducts";
 const App = () => {
   let footerData = {
     data: [
@@ -84,6 +85,7 @@ const App = () => {
         <Route path="/top-products" element={<TopProducts />} />
         <Route path="/product-detail" element={<ProductDetail />} />
         <Route path="/shopping-cart" element={<ShoppingCart />} />
+        <Route path="/all-products" element={<AllProducts />} />
       </Routes>
       <ContactBox />
       <Footer data={footerData.data} />

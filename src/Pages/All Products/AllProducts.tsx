@@ -185,7 +185,7 @@ const AllProducts = () => {
           <Text fz="sm" fw={500} color="#A0A0A7">
             21 of 300 Products
           </Text>
-          <Progress w={"20%"} color="grape" value={10} bg="white" />
+          <Progress w={"20%"} color="grape" value={10} bg="#D9D9D9" />
           <Button variant="default" color="dark" radius="md" mt={"40px"}>
             Load more
           </Button>

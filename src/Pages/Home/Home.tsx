@@ -2,6 +2,8 @@ import { Button, createStyles, Group, Input, Tooltip } from "@mantine/core";
 import { IconArmchair, IconCategory, IconSearch } from "@tabler/icons-react";
 import SearchBar from "../../Components/SearchBar/SearchBar";
 import AllProducts from "../All Products/AllProducts";
+import { HowItWorks } from "../HowItWorks/HowItWorks";
+import TopProducts from "../Top Products/TopProducts";
 import { HeroSectionHome } from "./HeroSection/HeroSection";
 import HeroSection2 from "./HeroSection2/HeroSection2";
 
@@ -57,7 +59,9 @@ const Home = () => {
 
       <HeroSectionHome />
       <HeroSection2 />
-      <AllProducts />
+      <HowItWorks />
+      <TopProducts />
+      {/* <AllProducts /> */}
     </>
   );
 };
