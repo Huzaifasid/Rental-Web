@@ -6,6 +6,7 @@ import TopProducts from "./Pages/Top Products/TopProducts";
 import { Footer } from "./Components/Footer/Footer";
 import ContactBox from "./Components/ContactBox/ContactBox";
 import ProductDetail from "./Pages/Product Detail/ProductDetail";
+import ShoppingCart from "./Pages/Shopping Cart/ShoppingCart";
 const App = () => {
   let footerData = {
     data: [
@@ -82,6 +83,7 @@ const App = () => {
         <Route path="/howitworks" element={<HowItWorks />} />
         <Route path="/top-products" element={<TopProducts />} />
         <Route path="/product-detail" element={<ProductDetail />} />
+        <Route path="/shopping-cart" element={<ShoppingCart />} />
       </Routes>
       <ContactBox />
       <Footer data={footerData.data} />

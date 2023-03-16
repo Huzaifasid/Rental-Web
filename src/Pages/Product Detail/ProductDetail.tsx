@@ -24,6 +24,11 @@ const ProductDetail = () => {
         paddingRight: "10px",
         margin: "auto",
       },
+      // [theme.fn.largerThan("md")]: {
+      //   paddingLeft: "10px",
+      //   paddingRight: "10px",
+      //   margin: "auto",
+      // },
     },
     desBox: {
       marginTop: "50px",
@@ -35,6 +40,9 @@ const ProductDetail = () => {
         flexWrap: "wrap",
         alignItems: "center",
         justifyContent: "center",
+      },
+      [theme.fn.largerThan("md")]: {
+        width: "100%",
       },
     },
     underthehood: {
@@ -50,6 +58,9 @@ const ProductDetail = () => {
         flexWrap: "wrap",
         alignItems: "center",
         justifyContent: "center",
+      },
+      [theme.fn.largerThan("md")]: {
+        width: "100%",
       },
     },
     flexBox: {
@@ -72,6 +83,9 @@ const ProductDetail = () => {
         alignItems: "center",
         justifyContent: "center",
       },
+      [theme.fn.largerThan("md")]: {
+        width: "100%",
+      },
     },
     frequentlyQ: {
       border: "1px solid gray",
@@ -87,6 +101,9 @@ const ProductDetail = () => {
         alignItems: "center",
         justifyContent: "center",
       },
+      [theme.fn.largerThan("md")]: {
+        width: "100%",
+      },
     },
     recentlyView: {
       marginTop: "50px",
@@ -94,9 +111,10 @@ const ProductDetail = () => {
   }));
 
   const { classes, theme } = useStyles();
-  const isMobile = useMediaQuery("(max-width: 755px)");
-  const span = isMobile ? 12 : 7;
-  const span2 = isMobile ? 12 : 4;
+  const isLap = useMediaQuery("(max-width: 1024px)");
+  const isMobile = useMediaQuery("(max-width: 768px)");
+  const span = isMobile ? 12 : isLap ? 6 : 7;
+  const span2 = isMobile ? 12 : isLap ? 6 : 4;
   let descBoxArray = [
     {
       img: desc1,

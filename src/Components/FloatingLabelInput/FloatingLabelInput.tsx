@@ -44,7 +44,7 @@ const useStyles = createStyles(
 );
 
 export function FloatingLabelInput(props: any) {
-  let { setColor } = props;
+  let { setColor, label } = props;
   const [focused, setFocused] = useState(false);
   const [value, setValue] = useState("");
   if (value.length >= 4) {
@@ -61,7 +61,7 @@ export function FloatingLabelInput(props: any) {
       label={
         <>
           <Text transform="uppercase" color={"#A0A0A7"}>
-            Email Address
+            {label}
           </Text>
         </>
       }
@@ -71,6 +71,7 @@ export function FloatingLabelInput(props: any) {
       }}
       classNames={classes}
       value={value}
+      placeholder={props.placeholder}
       onChange={(event) => setValue(event.currentTarget.value)}
       onFocus={() => setFocused(true)}
       onBlur={() => setFocused(false)}

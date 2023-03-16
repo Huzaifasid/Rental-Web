@@ -10,12 +10,19 @@ import {
 import { useState } from "react";
 import loginIcon from "../../Assets/loginIcon.png";
 import { FloatingLabelInput } from "../../Components/FloatingLabelInput/FloatingLabelInput";
+import NiceToMeet from "./Nice To Meet Modal/NiceToMeet";
 const RegisterModal = (props: any) => {
   const [color, setColor] = useState("");
+  const [showNext, setShowNext] = useState(false);
+
+  // console.log(props.show);
+  // console.log(props.close);
+
   return (
     <>
+      <NiceToMeet show={showNext} close={() => setShowNext(false)} />
       <Modal
-        opened={props.show}
+        opened={!showNext ? props.show : false}
         title="_"
         onClose={props.close}
         scrollAreaComponent={Modal.NativeScrollArea}
@@ -44,7 +51,7 @@ const RegisterModal = (props: any) => {
             Let's set up your Rental App account so you can finish checking out.
           </Text>
           <div>
-            <FloatingLabelInput setColor={setColor} />
+            <FloatingLabelInput setColor={setColor} label="Email Address" />
           </div>
           {/* <TextInput
             style={{
@@ -67,6 +74,9 @@ const RegisterModal = (props: any) => {
             }}
             radius="md"
             mt={"70px"}
+            onClick={() => {
+              setShowNext(true);
+            }}
           >
             Create an account
           </Button>

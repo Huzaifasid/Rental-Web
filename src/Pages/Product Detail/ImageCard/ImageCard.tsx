@@ -20,10 +20,10 @@ const ImageCard = () => {
     mainImg: {
       //    height={"534px"} width={"701px"}
       width: "701px",
-      height: "534px",
+      // height: "534px",
       [theme.fn.smallerThan("md")]: {
         width: "300px",
-        height: "250px",
+        // height: "250px",
       },
     },
     flexBox: {
@@ -41,6 +41,7 @@ const ImageCard = () => {
     smallImages: {
       [theme.fn.smallerThan("md")]: {
         flexDirection: "row",
+        justifyContent: "center",
       },
     },
   }));
