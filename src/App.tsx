@@ -8,6 +8,10 @@ import ContactBox from "./Components/ContactBox/ContactBox";
 import ProductDetail from "./Pages/Product Detail/ProductDetail";
 import ShoppingCart from "./Pages/Shopping Cart/ShoppingCart";
 import AllProducts from "./Pages/All Products/AllProducts";
+import Shipping from "./Pages/Shipping/Shipping";
+import Payment from "./Pages/Payment/Payment";
+import Checkout from "./Pages/Checkout/CheckOut";
+
 const App = () => {
   let footerData = {
     data: [
@@ -86,6 +90,9 @@ const App = () => {
         <Route path="/product-detail" element={<ProductDetail />} />
         <Route path="/shopping-cart" element={<ShoppingCart />} />
         <Route path="/all-products" element={<AllProducts />} />
+        <Route path="/shipping" element={<Shipping />} />
+        <Route path="/payment" element={<Payment />} />
+        <Route path="/checkout" element={<Checkout />} />
       </Routes>
       <ContactBox />
       <Footer data={footerData.data} />

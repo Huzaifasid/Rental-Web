@@ -22,13 +22,10 @@ import icon3 from "../../../Assets/deliveryIcon.png";
 import icon4 from "../../../Assets/giftIcon.png";
 import { DateInput } from "@mantine/dates";
 import { useState } from "react";
+import { useNavigate } from "react-router";
 
 const Checkout = () => {
   const useStyles = createStyles((theme) => ({
-    like: {
-      color: "#A0A0A7",
-      marginLeft: "5px",
-    },
     mainContainer: {
       display: "flex",
       flexDirection: "column",
@@ -47,50 +44,19 @@ const Checkout = () => {
       display: "flex",
       justifyContent: "space-between",
     },
-    iconSection: {},
-    span: {
-      fontSize: "11px",
-      fontWeight: "lighter",
-      color: "#979797",
-    },
 
-    listContainer: {},
     underlineTxt: {
       textDecoration: "underline",
       marginLeft: "2px",
       fontWeight: 500,
     },
 
-    inputContainer: {
-      marginTop: "20px",
-    },
-    inputBox: {
-      marginTop: "20px",
-      display: "flex",
-      border: "1px solid #D9DCDF",
-      borderRadius: "12px",
-      padding: "0px 15px",
-    },
     borderleft: {
       borderLeft: "1px solid #BDC1C6",
       paddingLeft: "10px",
       marginLeft: "20px",
     },
-    inputBox2: {
-      marginTop: "20px",
-      display: "flex",
-      alignItems: "center",
 
-      border: "1px solid #D9DCDF",
-      borderRadius: "12px",
-      padding: "10px 15px",
-    },
-    btnColor: {
-      backgroundColor: "black",
-      width: "18px",
-      height: "18px",
-      borderRadius: "50px",
-    },
     txtBox: {
       display: "flex",
       alignItems: "center",
@@ -101,12 +67,8 @@ const Checkout = () => {
   const { classes, theme } = useStyles();
   const [value, setValue] = useState<Date | null>(null);
   const [value2, setValue2] = useState<Date | null>(null);
-  let iconArr = [
-    { icon: icon1, free: "FREE", underLinetext: "Rental App Care", id: 1 },
-    { icon: icon2, text: "Include", underLinetext: "Purchase option", id: 2 },
-    { icon: icon3, text: "Delivery in 3-5 business days", id: 3 },
-    { icon: icon4, free: "FREE", text: "Shipping and return", id: 4 },
-  ];
+  const navigate = useNavigate();
+
   return (
     <>
       <div className={classes.mainContainer}>
@@ -160,7 +122,12 @@ const Checkout = () => {
             $ 261.87
           </Text>
         </Box>
-        <Button color="violet" radius="md" mt={"20px"}>
+        <Button
+          color="violet"
+          radius="md"
+          mt={"20px"}
+          onClick={() => navigate("/shipping")}
+        >
           CHECKOUT
         </Button>
       </div>

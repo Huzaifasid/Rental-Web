@@ -14,6 +14,9 @@ const DescriptionBox = (props: { img: any; text: String }) => {
       backgroundColor: "rgba(131, 75, 255, 0.1)",
       borderRadius: "12px",
       padding: "50px 0px",
+      // "@media (max-width: 768px)": {
+      //   width: "30%",
+      // },
       [theme.fn.smallerThan("md")]: {
         marginTop: "20px",
       },

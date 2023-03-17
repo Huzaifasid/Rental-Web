@@ -1,14 +1,19 @@
 import { Box, createStyles, Table, Text } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 import { ProductTable } from "../ProductTable/ProductTable";
-
+import leftArrow from "../../../Assets/leftDirectArrow.png";
 const CartDetails = () => {
   const useStyles = createStyles((theme) => ({
     headingSection: {
       display: "flex",
       alignItems: "center",
       justifyContent: "space-between",
+      marginTop: "15px",
       marginBottom: "20px",
+    },
+    box: {
+      display: "flex",
+      gap: "10px",
     },
   }));
 
@@ -77,6 +82,16 @@ const CartDetails = () => {
   return (
     <>
       <div>
+        <Text
+          fz={"14px"}
+          color="#979797"
+          className={classes.box}
+          transform="uppercase"
+          fw="600"
+        >
+          <img src={leftArrow} alt="" />
+          Continue Shopping
+        </Text>
         <Box className={classes.headingSection}>
           <Text fz={"24px"}>Shopping Cart</Text>
           <Text fz={"14px"} fw="400" color={"#102437"}>

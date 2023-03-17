@@ -94,7 +94,14 @@ export function ProductCard({
         </ActionIcon>
       </Group>
       <Card.Section>
-        <Image src={image} alt={title} height={180} width={300} m={"auto"} />
+        <Image
+          fit="contain"
+          src={image}
+          alt={title}
+          height={180}
+          width={300}
+          m={"auto"}
+        />
       </Card.Section>
       <Card.Section className={classes.section} mt="md">
         <Group position="apart">

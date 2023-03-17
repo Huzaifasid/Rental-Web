@@ -8,7 +8,9 @@ import {
   Progress,
   Radio,
   Group,
+  RangeSlider,
 } from "@mantine/core";
+import { useMediaQuery } from "@mantine/hooks";
 import React, { useState } from "react";
 
 const Sidebar = () => {
@@ -51,8 +53,8 @@ const Sidebar = () => {
     },
 
     mainContainer: {
-      //   width: "auto",
-      //   padding: "0px 20px",
+      width: "auto",
+      padding: "0px 20px",
     },
     progressBar: {
       display: "flex",
@@ -78,6 +80,15 @@ const Sidebar = () => {
   const { classes, theme } = useStyles();
   //   const [checked, setChecked] = useState(false);
   const [color, setColor] = useState("");
+
+  const islap2 = useMediaQuery("(max-width: 1440px)");
+  const islap = useMediaQuery("(max-width: 1024px)");
+  const isTab = useMediaQuery("(max-width: 768px)");
+  const isMobile = useMediaQuery("(max-width: 425px)");
+
+  const span = isMobile ? 6 : isTab ? 6 : islap ? 8 : islap2 ? 8 : 6;
+  // const span2 = isMobile ? 12 : isTab ? 6 : islap ? 6 : 3;
+
   let checkBoxArr = [
     {
       label: "Norem",
@@ -146,22 +157,22 @@ const Sidebar = () => {
         <div>
           <Text className={classes.txt}>Rent For</Text>
           <Grid mt={"20px"}>
-            <Col span={5}>
+            <Col span={span}>
               <Button variant="outline" color="dark" radius="xl" size="sm">
                 1 month
               </Button>
             </Col>
-            <Col span={6}>
+            <Col span={span}>
               <Button variant="outline" color="dark" radius="xl" size="sm">
                 3 month
               </Button>
             </Col>
-            <Col span={5}>
+            <Col span={span}>
               <Button color="violet" radius="xl" size="sm">
                 6 month
               </Button>
             </Col>
-            <Col span={4}>
+            <Col span={span}>
               <Button variant="outline" color="dark" radius="xl" size="sm">
                 12 month
               </Button>
@@ -215,7 +226,7 @@ const Sidebar = () => {
         </div>
         <div>
           <Text className={classes.txt}>Monthly Price</Text>
-          <div className={classes.progressBar}>
+          {/* <div className={classes.progressBar}>
             <div className={classes.priceCircle}></div>
             <Progress
               w={"100%"}
@@ -225,7 +236,10 @@ const Sidebar = () => {
               value={100}
             />
             <div className={classes.priceCircle}></div>
-          </div>
+          </div> */}
+
+          <RangeSlider color="dark" size="sm" radius="xs" />
+
           <Text className={classes.txtPrice}>$2.67 - $99.67</Text>
         </div>
 

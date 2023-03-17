@@ -18,6 +18,10 @@ const UserReviews = () => {
   const useStyles = createStyles((theme) => ({
     mainContainer: {
       display: "flex",
+
+      "@media (max-width: 1024px)": {
+        flexWrap: "wrap",
+      },
       [theme.fn.smallerThan("md")]: {
         flexDirection: "column",
       },
@@ -47,6 +51,17 @@ const UserReviews = () => {
     },
     ratingContainer: {
       marginLeft: "20px",
+
+      "@media (max-width: 1440px)": {
+        width: "80%",
+        marginLeft: "0px",
+        marginTop: "10px",
+      },
+      "@media (max-width: 1024px)": {
+        width: "100%",
+        marginLeft: "0px",
+        marginTop: "10px",
+      },
       [theme.fn.smallerThan("md")]: {
         marginLeft: "0px",
         marginTop: "20px",

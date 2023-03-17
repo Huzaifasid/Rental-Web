@@ -63,6 +63,10 @@ const AllProducts = () => {
     sideFlex: {
       display: "flex",
       justifyContent: "space-between",
+      gap: "30px",
+      "@media (max-width: 1024px)": {
+        gap: "20px",
+      },
       [theme.fn.smallerThan("md")]: {
         flexDirection: "column",
       },
@@ -86,9 +90,17 @@ const AllProducts = () => {
     country: "Croatia",
     description: "1920 * 1920 pixels per eye (3640 x 1920 pixels in total)",
   };
-  const isMobile = useMediaQuery("(max-width: 755px)");
-  const span = isMobile ? 12 : 4;
-  const span2 = isMobile ? 12 : 3;
+
+  const islap = useMediaQuery("(max-width: 1024px)");
+  const isTab = useMediaQuery("(max-width: 768px)");
+  const isMobile = useMediaQuery("(max-width: 425px)");
+
+  const span = isMobile ? 12 : isTab ? 6 : islap ? 6 : 4;
+  const span2 = isMobile ? 12 : isTab ? 6 : islap ? 6 : 3;
+
+  // const isMobile = useMediaQuery("(max-width: 755px)");
+  // const span = isMobile ? 12 : 4;
+  // const span2 = isMobile ? 12 : 3;
 
   return (
     <>

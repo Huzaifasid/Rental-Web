@@ -39,9 +39,24 @@ const AddToCart = () => {
       boxShadow:
         "0px 84px 33px rgba(53, 45, 73, 0.01), 0px 47px 28px rgba(53, 45, 73, 0.03), 0px 21px 21px rgba(53, 45, 73, 0.04), 0px 5px 12px rgba(53, 45, 73, 0.05), 0px 0px 0px rgba(53, 45, 73, 0.05)",
 
-      [theme.fn.smallerThan("md")]: {
-        marginTop: "40px",
+      "@media (max-width: 768px)": {
+        width: "50%",
+        margin: "auto",
+        marginTop: "70px",
       },
+      "@media (max-width: 425px)": {
+        width: "90%",
+        margin: "auto",
+        marginTop: "70px",
+      },
+      "@media (max-width: 320px)": {
+        width: "100%",
+        margin: "auto",
+        marginTop: "70px",
+      },
+      // [theme.fn.smallerThan("md")]: {
+      //   marginTop: "40px",
+      // },
     },
     headingSection: {
       display: "flex",

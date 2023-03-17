@@ -19,8 +19,11 @@ let data = {
 };
 
 const Recommended = () => {
-  const isMobile = useMediaQuery("(max-width: 755px)");
-  const span2 = isMobile ? 12 : 3;
+  const islap = useMediaQuery("(max-width: 1024px)");
+  const isTab = useMediaQuery("(max-width: 768px)");
+  const isMobile = useMediaQuery("(max-width: 425px)");
+
+  const span2 = isMobile ? 12 : isTab ? 6 : islap ? 6 : 3;
   return (
     <>
       <div>

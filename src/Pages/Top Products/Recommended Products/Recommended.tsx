@@ -21,6 +21,7 @@ import card6img from "../../../Assets/card6img.png";
 import card7img from "../../../Assets/card7img.png";
 import card8img from "../../../Assets/card8img.png";
 import { ProductCard } from "../Product Cards/ProductCard";
+import { useNavigate } from "react-router";
 
 const RecommendedProducts = () => {
   const useStyles = createStyles((theme) => ({
@@ -51,6 +52,7 @@ const RecommendedProducts = () => {
 
   const { classes, theme } = useStyles();
   const isMobile = useMediaQuery("(max-width: 755px)");
+  const navigate = useNavigate();
   const span = isMobile ? 12 : 3;
   let images = {
     img1: card1img,
@@ -95,7 +97,11 @@ const RecommendedProducts = () => {
         <Group className={classes.group} position="apart" spacing="xl">
           <h1>Recommended Products</h1>
 
-          <Button className={classes.btn} radius="md">
+          <Button
+            className={classes.btn}
+            radius="md"
+            onClick={() => navigate("/all-products")}
+          >
             Browse all products
           </Button>
         </Group>
@@ -180,7 +186,11 @@ const RecommendedProducts = () => {
         <Group className={classes.group} position="apart" spacing="xl">
           <h1>Commonly Rented</h1>
 
-          <Button className={classes.btn} radius="md">
+          <Button
+            className={classes.btn}
+            radius="md"
+            onClick={() => navigate("/all-products")}
+          >
             Browse all products
           </Button>
         </Group>

@@ -34,15 +34,30 @@ const ProductDetail = () => {
       marginTop: "50px",
       display: "flex",
       width: "60%",
+      gap: "20px",
       justifyContent: "space-between",
-      [theme.fn.smallerThan("md")]: {
-        width: "100%",
+
+      "@media (max-width: 1024px)": {
+        gap: "20px",
+        width: "63%",
+
         flexWrap: "wrap",
         alignItems: "center",
         justifyContent: "center",
       },
-      // [theme.fn.largerThan("md")]: {
+      "@media (max-width: 768px)": {
+        gap: "20px",
+        width: "80%",
+        margin: "auto",
+        flexWrap: "wrap",
+        alignItems: "center",
+        justifyContent: "center",
+      },
+      // [theme.fn.smallerThan("md")]: {
       //   width: "100%",
+      //   flexWrap: "wrap",
+      //   alignItems: "center",
+      //   justifyContent: "center",
       // },
     },
     underthehood: {
@@ -53,15 +68,28 @@ const ProductDetail = () => {
       backgroundColor: "white",
       marginTop: "50px",
 
-      [theme.fn.smallerThan("md")]: {
-        width: "100%",
+      "@media (max-width: 768px)": {
+        width: "57%",
+        margin: "auto",
+        marginTop: "20px",
         flexWrap: "wrap",
         alignItems: "center",
         justifyContent: "center",
       },
-      // [theme.fn.largerThan("md")]: {
-      //   width: "100%",
-      // },
+      "@media (max-width: 425px)": {
+        width: "90%",
+        margin: "auto",
+        marginTop: "20px",
+      },
+      "@media (max-width: 375px)": {
+        width: "100%",
+        margin: "auto",
+        marginTop: "20px",
+      },
+      "@media (max-width: 320px)": {
+        margin: "auto",
+        marginTop: "20px",
+      },
     },
     flexBox: {
       display: "flex",
@@ -77,14 +105,32 @@ const ProductDetail = () => {
       backgroundColor: "white",
       marginTop: "50px",
 
-      [theme.fn.smallerThan("md")]: {
-        width: "100%",
+      "@media (max-width: 1024px)": {
+        // width: "63%",
         flexWrap: "wrap",
         alignItems: "center",
         justifyContent: "center",
       },
-      // [theme.fn.largerThan("md")]: {
+      "@media (max-width: 768px)": {
+        width: "57%",
+        margin: "auto",
+        marginTop: "40px",
+      },
+      "@media (max-width: 425px)": {
+        width: "90%",
+        margin: "auto",
+        marginTop: "40px",
+      },
+      "@media (max-width: 375px)": {
+        width: "100%",
+        margin: "auto",
+        marginTop: "40px",
+      },
+      // [theme.fn.smallerThan("md")]: {
       //   width: "100%",
+      //   flexWrap: "wrap",
+      //   alignItems: "center",
+      //   justifyContent: "center",
       // },
     },
     frequentlyQ: {
@@ -94,16 +140,21 @@ const ProductDetail = () => {
       padding: "24px 24px 36px",
       backgroundColor: "white",
       marginTop: "50px",
-
-      [theme.fn.smallerThan("md")]: {
-        width: "100%",
-        flexWrap: "wrap",
-        alignItems: "center",
-        justifyContent: "center",
+      "@media (max-width: 768px)": {
+        width: "57%",
+        margin: "auto",
+        marginTop: "40px",
       },
-      // [theme.fn.largerThan("md")]: {
-      //   width: "100%",
-      // },
+      "@media (max-width: 425px)": {
+        width: "90%",
+        margin: "auto",
+        marginTop: "40px",
+      },
+      "@media (max-width: 375px)": {
+        width: "100%",
+        margin: "auto",
+        marginTop: "40px",
+      },
     },
     recentlyView: {
       marginTop: "50px",
