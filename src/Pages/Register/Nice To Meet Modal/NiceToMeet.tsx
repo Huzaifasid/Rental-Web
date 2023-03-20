@@ -1,18 +1,10 @@
-import {
-  Modal,
-  Button,
-  Group,
-  Text,
-  PasswordInput,
-  TextInput,
-  Divider,
-} from "@mantine/core";
+import { Modal, Button, Text } from "@mantine/core";
 import { useState } from "react";
 import { FloatingLabelInput } from "../../../Components/FloatingLabelInput/FloatingLabelInput";
 import loginIcon from "../../../Assets/loginIcon.png";
 import Information from "../../../Assets/information-circle.png";
 import DateOfBirth from "../Date Of Birth Modal/DateOfBirth";
-// import { FloatingLabelInput } from "../../Components/FloatingLabelInput/FloatingLabelInput";
+
 const NiceToMeet = (props: any) => {
   const [color, setColor] = useState("");
   const [showNext, setShowNext] = useState(false);

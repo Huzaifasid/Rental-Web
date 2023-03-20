@@ -1,20 +1,11 @@
-import {
-  Modal,
-  Button,
-  Group,
-  Text,
-  PasswordInput,
-  TextInput,
-  Divider,
-  Loader,
-} from "@mantine/core";
+import { Modal, Button, Text, Loader } from "@mantine/core";
 import { useState } from "react";
-import { FloatingLabelInput } from "../../../Components/FloatingLabelInput/FloatingLabelInput";
+
 import loginIcon from "../../../Assets/loginIcon.png";
-import Information from "../../../Assets/information-circle.png";
+
 import { FloatingLabelPassword } from "../../../Components/FloatingPasswordInput/FloatingLabelPassword";
 import ReadyToGo from "../Ready To Go Modal/ReadyToGo";
-// import { FloatingLabelInput } from "../../Components/FloatingLabelInput/FloatingLabelInput";
+
 const SecureAccount = (props: any) => {
   const [color, setColor] = useState("");
   const [loader, setloader] = useState(false);
@@ -53,16 +44,9 @@ const SecureAccount = (props: any) => {
             numbers, and is at least eight characters long.
           </Text>
 
-          {/* <FloatingLabelInput
-            setColor={setColor}
-            label="DATE OF BIRTH"
-            placeholder="MM/DD/YYYY"
-          /> */}
-
           <FloatingLabelPassword setColor={setColor} />
 
           <Button
-            // color={color === "" ? "" : color}
             style={{
               backgroundColor: color === "" ? "rgba(131, 75, 255, 0.4)" : color,
             }}
@@ -76,8 +60,6 @@ const SecureAccount = (props: any) => {
             }}
           >
             {loader ? <Loader color="white" size="sm" /> : "Confirm"}
-            {/* Confirm */}
-            {/* <Loader color="white" size="sm" />; */}
           </Button>
         </div>
       </Modal>

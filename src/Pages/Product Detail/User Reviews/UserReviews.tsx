@@ -3,7 +3,6 @@ import {
   Box,
   Button,
   createStyles,
-  Grid,
   Group,
   Progress,
   Rating,
@@ -131,12 +130,6 @@ const UserReviews = () => {
             </Text>
           </Box>
         </div>
-
-        {/* <Grid>
-          <Grid.Col md={6} lg={3}></Grid.Col>
-          <Grid.Col md={6} lg={3}></Grid.Col>
-          <Grid.Col md={6} lg={3}></Grid.Col>
-        </Grid> */}
       </div>
       <div className={classes.userContainer}>
         <div className={classes.user}>

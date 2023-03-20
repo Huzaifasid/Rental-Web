@@ -2,8 +2,6 @@ import {
   Title,
   Text,
   Container,
-  Button,
-  Overlay,
   createStyles,
   rem,
   Group,
@@ -19,11 +17,6 @@ const useStyles = createStyles((theme) => ({
     paddingTop: rem(180),
     paddingBottom: rem(130),
     backgroundColor: "#0C0C1D",
-    // backgroundImage:
-    //   "url(https://images.unsplash.com/photo-1573164713988-8665fc963095?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=980&q=80)",
-    // backgroundSize: "cover",
-    // backgroundPosition: "center",
-
     [theme.fn.smallerThan("xs")]: {
       paddingTop: rem(80),
       paddingBottom: rem(50),
@@ -148,8 +141,6 @@ export function HowItWorks() {
 
   return (
     <div className={classes.wrapper}>
-      {/* <Overlay color="#000" opacity={0.65} zIndex={1} /> */}
-
       <div className={classes.inner}>
         <Title className={classes.title}>How it works</Title>
 
@@ -185,15 +176,6 @@ export function HowItWorks() {
             rating={list3.rating}
             author={list3.author}
           />
-          {/* <Button className={classes.control} variant="white" size="lg">
-            Get started
-          </Button>
-          <Button
-            className={cx(classes.control, classes.secondaryControl)}
-            size="lg"
-          >
-            Live demo
-          </Button> */}
         </Group>
       </div>
     </div>

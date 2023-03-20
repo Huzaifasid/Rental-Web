@@ -1,4 +1,4 @@
-import { HeaderMegaMenu } from "./Components/Header/Header";
+import { HeaderResponsive } from "./Components/Header/Header";
 import Home from "./Pages/Home/Home";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { HowItWorks } from "./Pages/HowItWorks/HowItWorks";
@@ -11,8 +11,60 @@ import AllProducts from "./Pages/All Products/AllProducts";
 import Shipping from "./Pages/Shipping/Shipping";
 import Payment from "./Pages/Payment/Payment";
 import Checkout from "./Pages/Checkout/CheckOut";
+import Categories from "./Pages/Categories/Categories";
 
 const App = () => {
+  let navData = {
+    links: [
+      {
+        link: "/",
+        label: "Home",
+      },
+      {
+        link: "/howitworks",
+        label: "How It Works",
+      },
+      {
+        link: "/categories",
+        label: "Categories",
+        links: [
+          {
+            link: "/categories",
+            label: "Computers",
+          },
+          {
+            link: "/categories",
+            label: "Phones & Tablets",
+          },
+          {
+            link: "/categories",
+            label: "Gaming & VR",
+          },
+          {
+            link: "/categories",
+            label: "Wearable",
+          },
+          {
+            link: "/categories",
+            label: "Cameras",
+          },
+          {
+            link: "/categories",
+            label: "TV & Projectors",
+          },
+        ],
+      },
+
+      {
+        link: "/top-products",
+        label: "Top Products",
+      },
+      {
+        link: "/about-us",
+        label: "About Us",
+      },
+    ],
+  };
   let footerData = {
     data: [
       {
@@ -82,12 +134,13 @@ const App = () => {
   };
   return (
     <BrowserRouter>
-      <HeaderMegaMenu />
+      <HeaderResponsive links={navData.links} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/howitworks" element={<HowItWorks />} />
         <Route path="/top-products" element={<TopProducts />} />
         <Route path="/product-detail" element={<ProductDetail />} />
+        <Route path="/categories" element={<Categories />} />
         <Route path="/shopping-cart" element={<ShoppingCart />} />
         <Route path="/all-products" element={<AllProducts />} />
         <Route path="/shipping" element={<Shipping />} />

@@ -2,19 +2,12 @@ import {
   createStyles,
   List,
   Text,
-  ThemeIcon,
-  Radio,
   Button,
   Box,
   Group,
   Rating,
 } from "@mantine/core";
-import {
-  IconCircleCheck,
-  IconCircleDashed,
-  IconHeart,
-  IconShare,
-} from "@tabler/icons-react";
+import { IconHeart, IconShare } from "@tabler/icons-react";
 import icon1 from "../../../Assets/umbrellaIcon.png";
 import icon2 from "../../../Assets/shoppingbasketIcon.png";
 import icon3 from "../../../Assets/deliveryIcon.png";
@@ -54,9 +47,6 @@ const AddToCart = () => {
         margin: "auto",
         marginTop: "70px",
       },
-      // [theme.fn.smallerThan("md")]: {
-      //   marginTop: "40px",
-      // },
     },
     headingSection: {
       display: "flex",

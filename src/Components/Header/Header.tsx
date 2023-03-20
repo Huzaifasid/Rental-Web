@@ -1,325 +1,644 @@
+import { useState } from "react";
 import {
   createStyles,
   Header,
+  Container,
   Group,
-  Button,
-  UnstyledButton,
-  Text,
-  ThemeIcon,
-  Divider,
-  Box,
   Burger,
-  Drawer,
-  Collapse,
-  ScrollArea,
+  Paper,
+  Transition,
   rem,
+  Button,
+  Text,
+  Menu,
+  Center,
 } from "@mantine/core";
-
 import { useDisclosure } from "@mantine/hooks";
-import {
-  IconNotification,
-  IconCode,
-  IconBook,
-  IconChartPie3,
-  IconFingerprint,
-  IconCoin,
-  IconWorld,
-} from "@tabler/icons-react";
 
-import { Link, useNavigate } from "react-router-dom";
-
-import { useState } from "react";
-
+import { IconChevronDown, IconWorld } from "@tabler/icons-react";
 import LoginModal from "../../Pages/Login/LoginModal";
 import RegisterModal from "../../Pages/Register/RegisterModal";
+import { useNavigate } from "react-router";
+import SearchBar from "../SearchBar/SearchBar";
+import cameraLogo from "../../Assets/camera.png";
+import watchLogo from "../../Assets/watch.png";
+import mobileLogo from "../../Assets/mobile.png";
+import projectorLogo from "../../Assets/projector.png";
+import laptopLogo from "../../Assets/laptop.png";
+import computerLogo from "../../Assets/computer.png";
+const HEADER_HEIGHT = rem(60);
 
 const useStyles = createStyles((theme) => ({
-  link: {
-    display: "flex",
-    alignItems: "center",
-    height: "100%",
-
-    paddingLeft: theme.spacing.md,
-    paddingRight: theme.spacing.md,
-    textDecoration: "none",
-
-    color: theme.colorScheme === "dark" ? theme.white : theme.black,
-    // color: "grey",
-    fontWeight: 500,
-    fontSize: theme.fontSizes.sm,
-    [theme.fn.smallerThan("sm")]: {
-      height: rem(42),
-      display: "flex",
-      alignItems: "center",
-      width: "100%",
-    },
-
-    ...theme.fn.hover({
-      backgroundColor:
-        theme.colorScheme === "dark"
-          ? theme.colors.dark[6]
-          : theme.colors.gray[0],
-    }),
-  },
-  linkActive: {
-    "&": {
-      color: theme.fn.variant({ variant: "light", color: theme.primaryColor })
-        .color,
-    },
-  },
-  group: {
-    justifyContent: "space-around",
-  },
-  subLink: {
-    width: "100%",
-    padding: `${theme.spacing.xs} ${theme.spacing.md}`,
-    borderRadius: theme.radius.md,
-
-    ...theme.fn.hover({
-      backgroundColor:
-        theme.colorScheme === "dark"
-          ? theme.colors.dark[7]
-          : theme.colors.gray[0],
-    }),
-
-    "&:active": theme.activeStyles,
-  },
-
-  signUpBtn: {
-    backgroundColor: "#834BFF;",
-    borderRadius: "12px",
-    // padding: "16px 24px",
-  },
-  loginBtn: {
-    border: "none",
-  },
-
-  dropdownFooter: {
-    backgroundColor:
-      theme.colorScheme === "dark"
-        ? theme.colors.dark[7]
-        : theme.colors.gray[0],
-    margin: `calc(${theme.spacing.md} * -1)`,
-    marginTop: theme.spacing.sm,
-    padding: `${theme.spacing.md} calc(${theme.spacing.md} * 2)`,
-    paddingBottom: theme.spacing.xl,
-    borderTop: `${rem(1)} solid ${
-      theme.colorScheme === "dark" ? theme.colors.dark[5] : theme.colors.gray[1]
-    }`,
-  },
-
-  hiddenMobile: {
-    [theme.fn.smallerThan("sm")]: {
-      display: "none",
+  root: {
+    position: "relative",
+    zIndex: 1,
+    "@media (max-width: 425px)": {
+      marginBottom: "430px",
     },
   },
 
-  hiddenDesktop: {
+  dropdown: {
+    position: "absolute",
+    top: HEADER_HEIGHT,
+    left: 0,
+    right: 0,
+    zIndex: 23,
+    borderTopRightRadius: 0,
+    borderTopLeftRadius: 0,
+    borderTopWidth: 0,
+    overflow: "hidden",
+
     [theme.fn.largerThan("sm")]: {
       display: "none",
     },
   },
+
+  header: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    maxWidth: "80%",
+    padding: "0px 4px",
+    flexWrap: "nowrap",
+    height: "100%",
+    "@media (max-width: 1024px)": {
+      maxWidth: "100%",
+    },
+    "@media (max-width: 425px)": {
+      maxWidth: "100%",
+    },
+    "@media (max-width: 375px)": {
+      maxWidth: "100%",
+    },
+  },
+
+  links: {
+    [theme.fn.smallerThan("sm")]: {
+      display: "none",
+    },
+  },
+
+  burger: {
+    [theme.fn.largerThan("sm")]: {
+      display: "none",
+    },
+  },
+
+  link: {
+    display: "block",
+    lineHeight: 1,
+    padding: `${rem(8)} ${rem(17)}`,
+    borderRadius: theme.radius.sm,
+    textDecoration: "none",
+    color: "#A0A0A7",
+    textTransform: "uppercase",
+
+    fontSize: theme.fontSizes.sm,
+    fontWeight: 500,
+
+    "&:hover": {
+      backgroundColor:
+        theme.colorScheme === "dark"
+          ? theme.colors.dark[6]
+          : theme.colors.gray[0],
+    },
+
+    [theme.fn.smallerThan("sm")]: {
+      borderRadius: 0,
+      padding: theme.spacing.md,
+    },
+  },
+  signUpBtn: {
+    backgroundColor: "#834BFF;",
+    borderRadius: "12px",
+  },
+  loginBtn: {
+    border: "none",
+  },
+  linkActive: {
+    "&, &:hover": {
+      color: "#0C0C1D",
+    },
+  },
+  btnGroup: {
+    display: "flex",
+    flexWrap: "nowrap",
+  },
 }));
 
-const mockdata = [
-  {
-    icon: IconCode,
-    title: "Open source",
-    description: "This Pokémon’s cry is very loud and distracting",
-  },
-  {
-    icon: IconCoin,
-    title: "Free for everyone",
-    description: "The fluid of Smeargle’s tail secretions changes",
-  },
-  {
-    icon: IconBook,
-    title: "Documentation",
-    description: "Yanma is capable of seeing 360 degrees without",
-  },
-  {
-    icon: IconFingerprint,
-    title: "Security",
-    description: "The shell’s rounded shape and the grooves on its.",
-  },
-  {
-    icon: IconChartPie3,
-    title: "Analytics",
-    description: "This Pokémon uses its flying ability to quickly chase",
-  },
-  {
-    icon: IconNotification,
-    title: "Notifications",
-    description: "Combusken battles with the intensely hot flames it spews",
-  },
-];
+interface HeaderResponsiveProps {
+  links: { link: string; label: string }[];
+}
 
-export function HeaderMegaMenu() {
-  const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] =
-    useDisclosure(false);
-
-  const [linksOpened, { toggle: toggleLinks }] = useDisclosure(false);
-  const { classes, theme } = useStyles();
-
-  // const [opened, { open, close }] = useDisclosure(false);
+export function HeaderResponsive({ links }: HeaderResponsiveProps) {
+  const [opened, { toggle, close }] = useDisclosure(false);
+  const [active, setActive] = useState(links[0].link);
+  const navigate = useNavigate();
   const [showLogin, setShowLogin] = useState(false);
   const [showRegister, setShowRegister] = useState(false);
-  const links = mockdata.map((item) => (
-    <UnstyledButton className={classes.subLink} key={item.title}>
-      <Group noWrap align="flex-start">
-        <ThemeIcon size={34} variant="default" radius="md">
-          <item.icon size={rem(22)} color={theme.fn.primaryColor()} />
-        </ThemeIcon>
-        <div>
-          <Text size="sm" fw={500}>
-            {item.title}
-          </Text>
-          <Text size="xs" color="dimmed">
-            {item.description}
-          </Text>
-        </div>
-      </Group>
-    </UnstyledButton>
+  const { classes, cx } = useStyles();
+
+  const items = links.map((link) => (
+    <a
+      key={link.label}
+      href={link.link}
+      className={cx(classes.link, {
+        [classes.linkActive]: active === link.link,
+      })}
+      onClick={(event) => {
+        event.preventDefault();
+        setActive(link.link);
+
+        navigate(link.link);
+
+        close();
+      }}
+    >
+      {link.label}
+    </a>
   ));
 
   return (
-    <Box pb={40}>
-      <Header height={85} px="md">
-        <Group
-          position="apart"
-          sx={{ height: "100%" }}
-          className={classes.group}
+    <Header height={HEADER_HEIGHT} mb={150} className={classes.root}>
+      <Container className={classes.header} mb={20}>
+        <Text
+          color="dark"
+          fw={"bold"}
+          sx={{
+            fontSize: "32px",
+            "@media (max-width: 768px)": {
+              fontSize: "1.1rem",
+            },
+            "@media (max-width: 425px)": {
+              fontSize: "1.5rem",
+            },
+            "@media (max-width: 375px)": {
+              fontSize: "1.1rem",
+            },
+          }}
         >
-          {/* <MantineLogo size={30} /> */}
+          Rental App
+        </Text>
+        <Group spacing={5} className={classes.links}>
+          {/* {items} */}
 
-          <Text color="dark" fw={"bold"} size={23}>
-            Rental App
-          </Text>
-          <Group
-            sx={{ height: "100%" }}
-            spacing={0}
-            className={classes.hiddenMobile}
+          <a
+            href={"/"}
+            className={cx(classes.link, {
+              [classes.linkActive]: active === "/",
+            })}
+            onClick={(event) => {
+              event.preventDefault();
+              setActive("/");
+              navigate("/");
+              close();
+            }}
           >
-            <Link to={"/"} className={classes.link}>
-              Home
-            </Link>
-            <Link to={"/howitworks"} className={classes.link}>
-              How It Works
-            </Link>
-            {/* <UnstyledButton className={classes.link} onClick={toggleLinks}>
-              <Center inline>
-                <Box component="span" mr={5}>
-                  Categories
-                </Box>
-                <IconChevronDown size={16} color={theme.fn.primaryColor()} />
-              </Center>
-            </UnstyledButton> */}
-            <Link to={"/top-products"} className={classes.link}>
-              Top Products
-            </Link>
-            <a href="#" className={classes.link}>
-              About Us
-            </a>
-          </Group>
-          <Group className={classes.hiddenMobile}>
-            <Button variant="default" className={classes.loginBtn}>
-              {/* <img src={globe} alt="globe" /> */}
-              <IconWorld stroke={"1"} />
-            </Button>
-
-            <LoginModal show={showLogin} close={() => setShowLogin(false)} />
-            <RegisterModal
-              show={showRegister}
-              close={() => setShowRegister(false)}
-            />
-            <Button
-              variant="default"
-              className={classes.loginBtn}
-              // onClick={open}
-              onClick={() => setShowLogin(true)}
-            >
-              Log in
-            </Button>
-            <Button
-              className={classes.signUpBtn}
-              onClick={() => setShowRegister(true)}
-            >
-              Sign up
-            </Button>
-          </Group>
-
-          <Burger
-            opened={drawerOpened}
-            onClick={toggleDrawer}
-            className={classes.hiddenDesktop}
-          />
-        </Group>
-      </Header>
-
-      <Drawer
-        opened={drawerOpened}
-        onClose={closeDrawer}
-        size="100%"
-        padding="md"
-        title="Navigation"
-        className={classes.hiddenDesktop}
-        zIndex={1000000}
-      >
-        <ScrollArea h={`calc(100vh - ${rem(60)})`} mx="-md">
-          <Divider
-            my="sm"
-            color={theme.colorScheme === "dark" ? "dark.5" : "gray.1"}
-          />
-
-          <Link to={"/"} className={classes.link}>
             Home
-          </Link>
-
-          {/* <UnstyledButton className={classes.link} onClick={toggleLinks}>
-            <Center inline>
-              <Box component="span" mr={5}>
-                Features
-              </Box>
-              <IconChevronDown size={16} color={theme.fn.primaryColor()} />
-            </Center>
-          </UnstyledButton> */}
-          <Collapse in={linksOpened}>{links}</Collapse>
-          <Link to={"/howitworks"} className={classes.link}>
+          </a>
+          <a
+            href={"/howitworks"}
+            className={cx(classes.link, {
+              [classes.linkActive]: active === "/howitworks",
+            })}
+            onClick={(event) => {
+              event.preventDefault();
+              setActive("/howitworks");
+              navigate("/howitworks");
+              close();
+            }}
+          >
             How It Works
-          </Link>
-          <Link to={"/top-products"} className={classes.link}>
+          </a>
+          <Menu>
+            <Menu.Target>
+              <a
+                href={"/categories"}
+                className={cx(classes.link, {
+                  [classes.linkActive]: active === "/categories",
+                })}
+                onClick={(event) => {
+                  event.preventDefault();
+                  setActive("/categories");
+
+                  close();
+                }}
+              >
+                <Center>
+                  <span> Categories</span>
+                  <IconChevronDown size={rem(12)} stroke={1.5} />
+                </Center>
+              </a>
+            </Menu.Target>
+            <Menu.Dropdown
+              style={{
+                zIndex: "2222",
+              }}
+            >
+              <a
+                href={"/categories"}
+                className={cx(classes.link, {
+                  [classes.linkActive]: active === "/categories",
+                })}
+                style={{
+                  textTransform: "capitalize",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "10px",
+                }}
+                onClick={(event) => {
+                  event.preventDefault();
+                  setActive("/categories");
+                  close();
+                }}
+              >
+                <img src={laptopLogo} alt="computer" />
+                <span>Computers</span>
+              </a>
+              <a
+                href={"/categories"}
+                className={cx(classes.link, {
+                  [classes.linkActive]: active === "/categories",
+                })}
+                style={{
+                  textTransform: "capitalize",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "10px",
+                }}
+                onClick={(event) => {
+                  event.preventDefault();
+                  setActive("/categories");
+                  // navigate("/categories");
+                  close();
+                }}
+              >
+                <img src={mobileLogo} alt="computer" />
+                <span> Phones & Tablets</span>
+              </a>
+              <a
+                href={"/categories"}
+                className={cx(classes.link, {
+                  [classes.linkActive]: active === "/categories",
+                })}
+                style={{
+                  textTransform: "capitalize",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "10px",
+                }}
+                onClick={(event) => {
+                  event.preventDefault();
+                  setActive("/categories");
+                  // navigate("/categories");
+                  close();
+                }}
+              >
+                <img src={computerLogo} alt="computer" />
+                <span> Gaming & VR</span>
+              </a>
+              <a
+                href={"/categories"}
+                className={cx(classes.link, {
+                  [classes.linkActive]: active === "/categories",
+                })}
+                style={{
+                  textTransform: "capitalize",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "10px",
+                }}
+                onClick={(event) => {
+                  event.preventDefault();
+                  setActive("/categories");
+                  // navigate("/categories");
+                  close();
+                }}
+              >
+                <img src={watchLogo} alt="computer" />
+                <span> Wearable</span>
+              </a>
+              <a
+                href={"/categories"}
+                className={cx(classes.link, {
+                  [classes.linkActive]: active === "/categories",
+                })}
+                onClick={(event) => {
+                  event.preventDefault();
+                  setActive("/categories");
+                  // navigate("/categories");
+                  close();
+                }}
+                style={{
+                  textTransform: "capitalize",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "10px",
+                }}
+              >
+                <img src={cameraLogo} alt="computer" />
+                <span> Cameras</span>
+              </a>
+              <a
+                href={"/categories"}
+                className={cx(classes.link, {
+                  [classes.linkActive]: active === "/categories",
+                })}
+                onClick={(event) => {
+                  event.preventDefault();
+                  setActive("/categories");
+                  // navigate("/categories");
+                  close();
+                }}
+                style={{
+                  textTransform: "capitalize",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "10px",
+                }}
+              >
+                <img src={projectorLogo} alt="computer" />
+                <span> TV & Projectors </span>
+              </a>
+            </Menu.Dropdown>
+          </Menu>
+
+          <a
+            href={"/top-products"}
+            className={cx(classes.link, {
+              [classes.linkActive]: active === "/top-products",
+            })}
+            onClick={(event) => {
+              event.preventDefault();
+              setActive("/top-products");
+              navigate("/top-products");
+              close();
+            }}
+          >
             Top Products
-          </Link>
-          <a href="#" className={classes.link}>
+          </a>
+          <a
+            href={"/about-us"}
+            className={cx(classes.link, {
+              [classes.linkActive]: active === "/about-us",
+            })}
+            onClick={(event) => {
+              event.preventDefault();
+              setActive("/about-us");
+              navigate("/about-us");
+              close();
+            }}
+          >
             About Us
           </a>
-
-          <Divider
-            my="sm"
-            color={theme.colorScheme === "dark" ? "dark.5" : "gray.1"}
+        </Group>
+        <Group spacing={5} className={classes.btnGroup}>
+          <Button variant="default" className={classes.loginBtn}>
+            <IconWorld stroke={"1"} />
+          </Button>
+          <LoginModal show={showLogin} close={() => setShowLogin(false)} />
+          <RegisterModal
+            show={showRegister}
+            close={() => setShowRegister(false)}
           />
+          <Button
+            variant="default"
+            className={classes.loginBtn}
+            // onClick={open}
+            onClick={() => setShowLogin(true)}
+          >
+            Log in
+          </Button>
+          <Button
+            className={classes.signUpBtn}
+            onClick={() => setShowRegister(true)}
+          >
+            Sign up
+          </Button>
+        </Group>
+        <Burger
+          opened={opened}
+          onClick={toggle}
+          className={classes.burger}
+          size="sm"
+        />
+        <Transition transition="pop-top-right" duration={200} mounted={opened}>
+          {(styles) => (
+            <Paper className={classes.dropdown} withBorder style={styles}>
+              {/* {items} */}
 
-          <Group position="center" grow pb="xl" px="md">
-            <Button variant="default" className={classes.loginBtn}>
-              {/* <img src={globe} alt="globe" /> */}
-              <IconWorld stroke={"1"} />
-            </Button>
-            <Button
-              variant="default"
-              className={classes.loginBtn}
-              onClick={() => setShowLogin(true)}
-            >
-              Log in
-            </Button>
-            <Button
-              className={classes.signUpBtn}
-              onClick={() => setShowRegister(true)}
-            >
-              Sign up
-            </Button>
-          </Group>
-        </ScrollArea>
-      </Drawer>
-    </Box>
+              <a
+                href={"/"}
+                className={cx(classes.link, {
+                  [classes.linkActive]: active === "/",
+                })}
+                onClick={(event) => {
+                  event.preventDefault();
+                  setActive("/");
+                  navigate("/");
+                  close();
+                }}
+              >
+                Home
+              </a>
+              <a
+                href={"/howitworks"}
+                className={cx(classes.link, {
+                  [classes.linkActive]: active === "/howitworks",
+                })}
+                onClick={(event) => {
+                  event.preventDefault();
+                  setActive("/howitworks");
+                  navigate("/howitworks");
+                  close();
+                }}
+              >
+                How It Works
+              </a>
+              <Menu>
+                <Menu.Target>
+                  <a
+                    href={"/categories"}
+                    className={cx(classes.link, {
+                      [classes.linkActive]: active === "/categories",
+                    })}
+                    onClick={(event) => {
+                      event.preventDefault();
+                      setActive("/categories");
+                      navigate("/categories");
+                      close();
+                    }}
+                  >
+                    <span> Categories</span>
+                    <IconChevronDown size={rem(12)} stroke={1.5} />
+                  </a>
+                </Menu.Target>
+                <Menu.Dropdown
+                  style={{
+                    zIndex: "2222",
+                  }}
+                >
+                  <a
+                    href={"/categories"}
+                    className={cx(classes.link, {
+                      [classes.linkActive]: active === "/categories",
+                    })}
+                    style={{
+                      textTransform: "capitalize",
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "10px",
+                    }}
+                    onClick={(event) => {
+                      event.preventDefault();
+                      setActive("/categories");
+                      close();
+                    }}
+                  >
+                    <img src={laptopLogo} alt="computer" />
+                    <span>Computers</span>
+                  </a>
+                  <a
+                    href={"/categories"}
+                    className={cx(classes.link, {
+                      [classes.linkActive]: active === "/categories",
+                    })}
+                    style={{
+                      textTransform: "capitalize",
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "10px",
+                    }}
+                    onClick={(event) => {
+                      event.preventDefault();
+                      setActive("/categories");
+                      // navigate("/categories");
+                      close();
+                    }}
+                  >
+                    <img src={mobileLogo} alt="computer" />
+                    <span> Phones & Tablets</span>
+                  </a>
+                  <a
+                    href={"/categories"}
+                    className={cx(classes.link, {
+                      [classes.linkActive]: active === "/categories",
+                    })}
+                    style={{
+                      textTransform: "capitalize",
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "10px",
+                    }}
+                    onClick={(event) => {
+                      event.preventDefault();
+                      setActive("/categories");
+                      // navigate("/categories");
+                      close();
+                    }}
+                  >
+                    <img src={computerLogo} alt="computer" />
+                    <span> Gaming & VR</span>
+                  </a>
+                  <a
+                    href={"/categories"}
+                    className={cx(classes.link, {
+                      [classes.linkActive]: active === "/categories",
+                    })}
+                    style={{
+                      textTransform: "capitalize",
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "10px",
+                    }}
+                    onClick={(event) => {
+                      event.preventDefault();
+                      setActive("/categories");
+                      // navigate("/categories");
+                      close();
+                    }}
+                  >
+                    <img src={watchLogo} alt="computer" />
+                    <span> Wearable</span>
+                  </a>
+                  <a
+                    href={"/categories"}
+                    className={cx(classes.link, {
+                      [classes.linkActive]: active === "/categories",
+                    })}
+                    onClick={(event) => {
+                      event.preventDefault();
+                      setActive("/categories");
+                      // navigate("/categories");
+                      close();
+                    }}
+                    style={{
+                      textTransform: "capitalize",
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "10px",
+                    }}
+                  >
+                    <img src={cameraLogo} alt="computer" />
+                    <span> Cameras</span>
+                  </a>
+                  <a
+                    href={"/categories"}
+                    className={cx(classes.link, {
+                      [classes.linkActive]: active === "/categories",
+                    })}
+                    onClick={(event) => {
+                      event.preventDefault();
+                      setActive("/categories");
+                      // navigate("/categories");
+                      close();
+                    }}
+                    style={{
+                      textTransform: "capitalize",
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "10px",
+                    }}
+                  >
+                    <img src={projectorLogo} alt="computer" />
+                    <span> TV & Projectors </span>
+                  </a>
+                </Menu.Dropdown>
+              </Menu>
+
+              <a
+                href={"/top-products"}
+                className={cx(classes.link, {
+                  [classes.linkActive]: active === "/top-products",
+                })}
+                onClick={(event) => {
+                  event.preventDefault();
+                  setActive("/top-products");
+                  navigate("/top-products");
+                  close();
+                }}
+              >
+                Top Products
+              </a>
+              <a
+                href={"/about-us"}
+                className={cx(classes.link, {
+                  [classes.linkActive]: active === "/about-us",
+                })}
+                onClick={(event) => {
+                  event.preventDefault();
+                  setActive("/about-us");
+                  navigate("/about-us");
+                  close();
+                }}
+              >
+                About Us
+              </a>
+            </Paper>
+          )}
+        </Transition>
+      </Container>
+      <SearchBar />
+    </Header>
   );
 }

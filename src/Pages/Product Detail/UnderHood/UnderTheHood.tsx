@@ -1,5 +1,4 @@
 import { createStyles, Grid, Text } from "@mantine/core";
-import React from "react";
 
 const UnderTheHood = () => {
   const useStyles = createStyles((theme) => ({

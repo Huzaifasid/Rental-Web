@@ -45,9 +45,6 @@ const ReadyToGo = (props: any) => {
             }}
             radius="md"
             mt={"80px"}
-            // onClick={() => {
-            //   setloader(true);
-            // }}
           >
             Got it!
           </Button>

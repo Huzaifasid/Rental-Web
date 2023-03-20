@@ -1,10 +1,9 @@
-import { createStyles, Box, Image, Text, Grid } from "@mantine/core";
+import { createStyles, Text, Grid } from "@mantine/core";
 import ImageCard from "./ImageCard/ImageCard";
 import desc1 from "../../Assets/productDesImg1.png";
 import desc2 from "../../Assets/productDesImg2.png";
 import desc3 from "../../Assets/productDesImg3.png";
 import desc4 from "../../Assets/productDesImg4.png";
-
 import DescriptionBox from "./DescriptionBox/DescriptionBox";
 import AddToCart from "./Add To Cart/AddToCart";
 import UnderTheHood from "./UnderHood/UnderTheHood";
@@ -12,7 +11,7 @@ import { useMediaQuery } from "@mantine/hooks";
 import UserReviews from "./User Reviews/UserReviews";
 import { FrequentlyAskQuestion } from "./Frequently Ask Question/FrequentlyAskQuestion";
 import Recommended from "./Recommended/Recommended";
-
+import rightArrow from "../../Assets/rightDirectArrow.png";
 const ProductDetail = () => {
   const useStyles = createStyles((theme) => ({
     container: {
@@ -24,11 +23,6 @@ const ProductDetail = () => {
         paddingRight: "10px",
         margin: "auto",
       },
-      // [theme.fn.largerThan("md")]: {
-      //   paddingLeft: "10px",
-      //   paddingRight: "10px",
-      //   margin: "auto",
-      // },
     },
     desBox: {
       marginTop: "50px",
@@ -53,12 +47,6 @@ const ProductDetail = () => {
         alignItems: "center",
         justifyContent: "center",
       },
-      // [theme.fn.smallerThan("md")]: {
-      //   width: "100%",
-      //   flexWrap: "wrap",
-      //   alignItems: "center",
-      //   justifyContent: "center",
-      // },
     },
     underthehood: {
       border: "1px solid gray",
@@ -106,7 +94,6 @@ const ProductDetail = () => {
       marginTop: "50px",
 
       "@media (max-width: 1024px)": {
-        // width: "63%",
         flexWrap: "wrap",
         alignItems: "center",
         justifyContent: "center",
@@ -126,12 +113,6 @@ const ProductDetail = () => {
         margin: "auto",
         marginTop: "40px",
       },
-      // [theme.fn.smallerThan("md")]: {
-      //   width: "100%",
-      //   flexWrap: "wrap",
-      //   alignItems: "center",
-      //   justifyContent: "center",
-      // },
     },
     frequentlyQ: {
       border: "1px solid gray",
@@ -158,6 +139,10 @@ const ProductDetail = () => {
     },
     recentlyView: {
       marginTop: "50px",
+    },
+    box: {
+      display: "flex",
+      gap: "10px",
     },
   }));
 
@@ -191,6 +176,19 @@ const ProductDetail = () => {
   return (
     <>
       <div className={classes.container}>
+        <Text
+          fz={"14px"}
+          color="#000000"
+          className={classes.box}
+          transform="uppercase"
+          fw="600"
+        >
+          All
+          <img src={rightArrow} alt="" />
+          Gaming & vr
+          <img src={rightArrow} alt="" />
+          xbox 5
+        </Text>
         <Grid
           gutter={5}
           gutterXs="md"

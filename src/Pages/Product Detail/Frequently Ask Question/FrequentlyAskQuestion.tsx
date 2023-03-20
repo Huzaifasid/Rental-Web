@@ -1,19 +1,16 @@
 import {
   createStyles,
   Title,
-  Container,
   Accordion,
   ThemeIcon,
   MantineProvider,
   getStylesRef,
   rem,
 } from "@mantine/core";
-import { IconMinus, IconPlus } from "@tabler/icons-react";
+import { IconPlus } from "@tabler/icons-react";
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
-    // paddingTop: `calc(${theme.spacing.xl} * 2)`,
-    // minHeight: rem(820),
     position: "relative",
     color: theme.black,
   },
@@ -27,7 +24,7 @@ const useStyles = createStyles((theme) => ({
   item: {
     borderBottom: 0,
     borderRadius: theme.radius.md,
-    // boxShadow: theme.shadows.lg,
+
     overflow: "hidden",
   },
 
@@ -50,12 +47,6 @@ const useStyles = createStyles((theme) => ({
   icon: {
     ref: getStylesRef("icon"),
     marginLeft: theme.spacing.md,
-  },
-
-  gradient: {
-    // backgroundImage: `radial-gradient(${
-    //   theme.colors[theme.primaryColor][6]
-    // } 0%, ${theme.colors[theme.primaryColor][5]} 100%)`,
   },
 
   itemOpened: {
@@ -89,10 +80,9 @@ export function FrequentlyAskQuestion() {
           chevronPosition="right"
           defaultValue="reset-password"
           chevronSize={50}
-          //   variant="separated"
           disableChevronRotation
           chevron={
-            <ThemeIcon className={classes.gradient} unstyled size={32}>
+            <ThemeIcon unstyled size={32}>
               <IconPlus size="1.05rem" stroke={1.5} />
             </ThemeIcon>
           }

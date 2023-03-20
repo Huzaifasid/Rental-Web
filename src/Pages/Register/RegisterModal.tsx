@@ -1,12 +1,4 @@
-import {
-  Modal,
-  Button,
-  Group,
-  Text,
-  PasswordInput,
-  TextInput,
-  Divider,
-} from "@mantine/core";
+import { Modal, Button, Text } from "@mantine/core";
 import { useState } from "react";
 import loginIcon from "../../Assets/loginIcon.png";
 import { FloatingLabelInput } from "../../Components/FloatingLabelInput/FloatingLabelInput";
@@ -14,9 +6,6 @@ import NiceToMeet from "./Nice To Meet Modal/NiceToMeet";
 const RegisterModal = (props: any) => {
   const [color, setColor] = useState("");
   const [showNext, setShowNext] = useState(false);
-
-  // console.log(props.show);
-  // console.log(props.close);
 
   return (
     <>
@@ -53,22 +42,13 @@ const RegisterModal = (props: any) => {
           <div>
             <FloatingLabelInput setColor={setColor} label="Email Address" />
           </div>
-          {/* <TextInput
-            style={{
-              borderBottom: "1px solid grey",
-              paddingLeft: "10px",
-            }}
-            mt="40px"
-            placeholder="YOUR EMAIL"
-            variant="unstyled"
-          /> */}
+
           <Text fz="14px" mt="20px" color={"#A0A0A7"}>
             By clicking on "Create an account" you agree to our Privacy Policy
             and Terms and Conditions.
           </Text>
 
           <Button
-            // color={color === "" ? "" : color}
             style={{
               backgroundColor: color === "" ? "rgba(131, 75, 255, 0.4)" : color,
             }}

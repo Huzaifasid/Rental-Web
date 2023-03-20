@@ -1,12 +1,4 @@
-import {
-  Box,
-  Button,
-  createStyles,
-  Flex,
-  Grid,
-  Group,
-  Image,
-} from "@mantine/core";
+import { Box, createStyles, Flex, Grid, Group, Image } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 import { IconZoomIn } from "@tabler/icons-react";
 import React, { useState } from "react";
@@ -20,12 +12,10 @@ const ImageCard = () => {
       borderRadius: "6px",
     },
     mainImg: {
-      //    height={"534px"} width={"701px"}
       width: "701px",
-      // height: "534px",
+
       [theme.fn.smallerThan("md")]: {
         width: "300px",
-        // height: "250px",
       },
     },
     flexBox: {
@@ -40,9 +30,7 @@ const ImageCard = () => {
     },
     flexBox2: {
       display: "flex",
-      [theme.fn.smallerThan("md")]: {
-        // flexDirection: "column",
-      },
+      [theme.fn.smallerThan("md")]: {},
     },
     smallImages: {
       [theme.fn.smallerThan("md")]: {
@@ -81,7 +69,6 @@ const ImageCard = () => {
                 className={classes.smallImages}
               >
                 <Box
-                  // className={classes.boxImg}
                   style={{
                     backgroundColor:
                       images === img1 ? "rgba(30, 30, 32, 0.05)" : "",

@@ -1,12 +1,4 @@
-import {
-  Box,
-  Button,
-  createStyles,
-  Flex,
-  Grid,
-  Select,
-  Text,
-} from "@mantine/core";
+import { Box, Button, createStyles, Grid, Select, Text } from "@mantine/core";
 import { IconChevronDown } from "@tabler/icons-react";
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
