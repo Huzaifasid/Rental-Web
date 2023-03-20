@@ -26,6 +26,7 @@ import mobileLogo from "../../Assets/mobile.png";
 import projectorLogo from "../../Assets/projector.png";
 import laptopLogo from "../../Assets/laptop.png";
 import computerLogo from "../../Assets/computer.png";
+import navIcon from "../../Assets/navbarIcon.png";
 const HEADER_HEIGHT = rem(60);
 
 const useStyles = createStyles((theme) => ({
@@ -114,6 +115,14 @@ const useStyles = createStyles((theme) => ({
   },
   loginBtn: {
     border: "none",
+  },
+  iconBtn: {
+    padding: "0px",
+    width: "49px",
+    height: "46px",
+    backgroundColor: " #FFFFFF",
+    border: "2px solid rgba(16, 36, 55, 0.16)",
+    borderRadius: "99px",
   },
   linkActive: {
     "&, &:hover": {
@@ -393,8 +402,8 @@ export function HeaderResponsive({ links }: HeaderResponsiveProps) {
           </a>
         </Group>
         <Group spacing={5} className={classes.btnGroup}>
-          <Button variant="default" className={classes.loginBtn}>
-            <IconWorld stroke={"1"} />
+          <Button className={classes.iconBtn}>
+            <img src={navIcon} alt="icon" />
           </Button>
           <LoginModal show={showLogin} close={() => setShowLogin(false)} />
           <RegisterModal
