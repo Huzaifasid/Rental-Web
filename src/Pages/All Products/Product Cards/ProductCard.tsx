@@ -20,7 +20,10 @@ const useStyles = createStyles((theme) => ({
       width: "300px",
     },
     "@media (max-width: 375px)": {
-      width: "auto",
+      width: "280px",
+    },
+    "@media (max-width: 320px)": {
+      width: "260px",
     },
   },
   txt: {
