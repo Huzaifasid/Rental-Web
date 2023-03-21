@@ -1,10 +1,10 @@
 import { Col, Grid, Text } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 import { ProductCard } from "../../All Products/Product Cards/ProductCard";
-import card1img from "../../../Assets/card1img.png";
-import card2img from "../../../Assets/card2img.png";
-import card3img from "../../../Assets/card3img.png";
-import card4img from "../../../Assets/card4img.png";
+import card1img from "../../../Assets/card/card1img.png";
+import card2img from "../../../Assets/card/card2img.png";
+import card3img from "../../../Assets/card/card3img.png";
+import card4img from "../../../Assets/card/card4img.png";
 
 let images = {
   img1: card1img,

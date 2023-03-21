@@ -1,7 +1,7 @@
 import { Modal, Button, Text } from "@mantine/core";
 import { useState } from "react";
 import { FloatingLabelInput } from "../../../Components/FloatingLabelInput/FloatingLabelInput";
-import loginIcon from "../../../Assets/loginIcon.png";
+import loginIcon from "../../../Assets/icons/loginIcon.png";
 
 import SecureAccount from "../Secure Account/SecureAccount";
 

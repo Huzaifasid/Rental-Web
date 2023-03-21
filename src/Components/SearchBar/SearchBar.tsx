@@ -9,7 +9,7 @@ import {
 import { DatePickerInput } from "@mantine/dates";
 import { useMediaQuery } from "@mantine/hooks";
 import { IconChevronDown, IconSearch } from "@tabler/icons-react";
-import React, { useState } from "react";
+import { useState } from "react";
 
 const SearchBar = () => {
   const isLap = useMediaQuery("(max-width: 1024px)");
@@ -102,40 +102,25 @@ const SearchBar = () => {
           <div className={classes.firstDiv}>
             <Text fw={"bold"}>What</Text>
             <Select
-              // label={
-              //   <>
-              //     <Text fz={"13px"} transform="uppercase" color={"#A0A0A7"}>
-              //       Country Code
-              //     </Text>
-              //   </>
-              // }
               data={data}
               placeholder="Searching for..."
               nothingFound="Nothing found"
               searchable
               className={classes.selectWidth}
               creatable
-              // mt={"25px"}
               variant={"unstyled"}
               rightSection={<IconChevronDown size="0rem" />}
-              // style={{ borderBottom: "1px solid #A0A0A7" }}
-              // getCreateLabel={(query) => `+ Search ${query}`}
               onCreate={(query) => {
                 const item = { value: query, label: query };
                 setData((current) => [...current, item]);
                 return item;
               }}
             />
-            {/* <Text color={"#102437"} fw={"lighter"}>
-              Searching for...
-            </Text> */}
           </div>
           <div className={classes.searchBox}>
             <div className={classes.border}>
               <Text fw={"bold"}>Where</Text>
-              {/* <Text color={"#102437"} fw={"lighter"}>
-                Search Destination
-              </Text> */}
+
               <Select
                 data={data2}
                 variant={"unstyled"}
@@ -146,9 +131,6 @@ const SearchBar = () => {
             </div>
             <div className={classes.border}>
               <Text fw={"bold"}>When</Text>
-              {/* <Text color={"#102437"} fw={"lighter"}>
-                Select Renting Date
-              </Text> */}
 
               <Group position="center">
                 <DatePickerInput
@@ -158,8 +140,6 @@ const SearchBar = () => {
                   variant="unstyled"
                   numberOfColumns={2}
                   onChange={setValue}
-                  // mx="auto"
-                  // maw={400}
                 />
               </Group>
             </div>

@@ -1,6 +1,6 @@
 import { Modal, Button, Text } from "@mantine/core";
 import { useState } from "react";
-import loginIcon from "../../Assets/loginIcon.png";
+import loginIcon from "../../Assets/icons/loginIcon.png";
 import { FloatingLabelInput } from "../../Components/FloatingLabelInput/FloatingLabelInput";
 import NiceToMeet from "./Nice To Meet Modal/NiceToMeet";
 const RegisterModal = (props: any) => {

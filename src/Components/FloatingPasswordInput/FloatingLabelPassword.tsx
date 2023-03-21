@@ -1,16 +1,12 @@
 import { useState } from "react";
 import {
-  TextInput,
   createStyles,
   rem,
   Text,
   PasswordInput,
-  Progress,
   Popover,
   Box,
 } from "@mantine/core";
-
-import { IconX, IconCheck } from "@tabler/icons-react";
 
 const useStyles = createStyles(
   (theme, { floating }: { floating: boolean }) => ({
@@ -54,47 +50,8 @@ const useStyles = createStyles(
   })
 );
 
-function PasswordRequirement({
-  meets,
-  label,
-}: {
-  meets: boolean;
-  label: string;
-}) {
-  return (
-    <Text
-      color={meets ? "teal" : "red"}
-      sx={{ display: "flex", alignItems: "center" }}
-      mt={7}
-      size="sm"
-    >
-      {meets ? <IconCheck size="0.9rem" /> : <IconX size="0.9rem" />}{" "}
-      <Box ml={10}>{label}</Box>
-    </Text>
-  );
-}
-
-const requirements = [
-  { re: /[0-9]/, label: "Includes number" },
-  { re: /[a-z]/, label: "Includes lowercase letter" },
-  { re: /[A-Z]/, label: "Includes uppercase letter" },
-  { re: /[$&+,:;=?@#|'<>.^*()%!-]/, label: "Includes special symbol" },
-];
-
-function getStrength(password: string) {
-  let multiplier = password.length > 5 ? 0 : 1;
-
-  requirements.forEach((requirement) => {
-    if (!requirement.re.test(password)) {
-      multiplier += 1;
-    }
-  });
-
-  return Math.max(100 - (100 / (requirements.length + 1)) * multiplier, 10);
-}
-
 export function FloatingLabelPassword(props: any) {
-  let { setColor, label } = props;
+  let { setColor } = props;
   const [focused, setFocused] = useState(false);
   const [value, setValue] = useState("");
   let orange = value.length > 0 && value.length <= 6;
@@ -108,17 +65,7 @@ export function FloatingLabelPassword(props: any) {
     floating: value.trim().length !== 0 || focused,
   });
   const [popoverOpened, setPopoverOpened] = useState(false);
-  //   const [value, setValue] = useState("");
-  const checks = requirements.map((requirement, index) => (
-    <PasswordRequirement
-      key={index}
-      label={requirement.label}
-      meets={requirement.re.test(value)}
-    />
-  ));
 
-  const strength = getStrength(value);
-  const color = strength === 100 ? "teal" : strength > 50 ? "yellow" : "red";
   return (
     <>
       <Box>
@@ -209,14 +156,6 @@ export function FloatingLabelPassword(props: any) {
               Look’s good!
             </Text>
           )}
-          {/* <Popover.Dropdown>
-            <Progress color={color} value={strength} size={5} mb="xs" />
-            <PasswordRequirement
-              label="Includes at least 6 characters"
-              meets={value.length > 5}
-            />
-            {checks}
-          </Popover.Dropdown> */}
         </Popover>
       </Box>
     </>

@@ -6,12 +6,10 @@ import {
   Button,
   Group,
   Text,
-  List,
-  ThemeIcon,
   rem,
 } from "@mantine/core";
-import { IconCheck } from "@tabler/icons-react";
-import image1 from "../../../Assets/herosectionhome1.png";
+
+import image1 from "../../../Assets/home/herosectionhome1.png";
 
 const useStyles = createStyles((theme) => ({
   inner: {
@@ -95,30 +93,6 @@ export function HeroSectionHome() {
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua.
             </Text>
-
-            {/* <List
-              mt={30}
-              spacing="sm"
-              size="sm"
-              icon={
-                <ThemeIcon size={20} radius="xl">
-                  <IconCheck size={rem(12)} stroke={1.5} />
-                </ThemeIcon>
-              }
-            >
-              <List.Item>
-                <b>TypeScript based</b> – build type safe applications, all
-                components and hooks export types
-              </List.Item>
-              <List.Item>
-                <b>Free and open source</b> – all packages have MIT license, you
-                can use Mantine in any project
-              </List.Item>
-              <List.Item>
-                <b>No annoying focus ring</b> – focus ring will appear only when
-                user navigates with keyboard
-              </List.Item>
-            </List> */}
 
             <Group mt={30}>
               <Button radius="xl" size="md" className={classes.control}>

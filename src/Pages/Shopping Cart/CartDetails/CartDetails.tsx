@@ -1,7 +1,7 @@
-import { Box, createStyles, Table, Text } from "@mantine/core";
-import { useMediaQuery } from "@mantine/hooks";
+import { Box, createStyles, Text } from "@mantine/core";
+
 import { ProductTable } from "../ProductTable/ProductTable";
-import leftArrow from "../../../Assets/leftDirectArrow.png";
+import leftArrow from "../../../Assets/icons/leftDirectArrow.png";
 const CartDetails = () => {
   const useStyles = createStyles((theme) => ({
     headingSection: {
@@ -17,10 +17,7 @@ const CartDetails = () => {
     },
   }));
 
-  const { classes, theme } = useStyles();
-  const isMobile = useMediaQuery("(max-width: 755px)");
-  const span = isMobile ? 12 : 7;
-  const span2 = isMobile ? 12 : 4;
+  const { classes } = useStyles();
 
   let data = [
     {

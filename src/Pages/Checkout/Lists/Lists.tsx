@@ -1,8 +1,8 @@
 import { Box, createStyles, Text } from "@mantine/core";
-import { IconCopy } from "@tabler/icons-react";
-import copyimg from "../../../Assets/copy.png";
+
+import copyimg from "../../../Assets/icons/copy.png";
 const Lists = () => {
-  const useStyles = createStyles((theme) => ({
+  const useStyles = createStyles(() => ({
     txtBox: {
       display: "flex",
       alignItems: "center",
@@ -16,7 +16,7 @@ const Lists = () => {
     },
   }));
 
-  const { classes, theme } = useStyles();
+  const { classes } = useStyles();
   return (
     <>
       <div

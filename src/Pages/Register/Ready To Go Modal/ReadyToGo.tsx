@@ -1,5 +1,5 @@
 import { Modal, Button, Text } from "@mantine/core";
-import loginIcon from "../../../Assets/loginIcon.png";
+import loginIcon from "../../../Assets/icons/loginIcon.png";
 
 import List from "./List";
 const ReadyToGo = (props: any) => {

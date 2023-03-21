@@ -1,9 +1,9 @@
 import { createStyles, Text, Grid } from "@mantine/core";
 import ImageCard from "./ImageCard/ImageCard";
-import desc1 from "../../Assets/productDesImg1.png";
-import desc2 from "../../Assets/productDesImg2.png";
-import desc3 from "../../Assets/productDesImg3.png";
-import desc4 from "../../Assets/productDesImg4.png";
+import desc1 from "../../Assets/Product/icon/bank.png";
+import desc2 from "../../Assets/Product/icon/umbrella.png";
+import desc3 from "../../Assets/Product/icon/reload.png";
+import desc4 from "../../Assets/Product/icon/openbox-search.png";
 import DescriptionBox from "./DescriptionBox/DescriptionBox";
 import AddToCart from "./Add To Cart/AddToCart";
 import UnderTheHood from "./UnderHood/UnderTheHood";
@@ -11,7 +11,7 @@ import { useMediaQuery } from "@mantine/hooks";
 import UserReviews from "./User Reviews/UserReviews";
 import { FrequentlyAskQuestion } from "./Frequently Ask Question/FrequentlyAskQuestion";
 import Recommended from "./Recommended/Recommended";
-import rightArrow from "../../Assets/rightDirectArrow.png";
+import rightArrow from "../../Assets/icons/rightDirectArrow.png";
 const ProductDetail = () => {
   const useStyles = createStyles((theme) => ({
     container: {
@@ -146,7 +146,7 @@ const ProductDetail = () => {
     },
   }));
 
-  const { classes, theme } = useStyles();
+  const { classes } = useStyles();
   const isLap = useMediaQuery("(max-width: 1024px)");
   const isMobile = useMediaQuery("(max-width: 768px)");
   const span = isMobile ? 12 : isLap ? 6 : 7;

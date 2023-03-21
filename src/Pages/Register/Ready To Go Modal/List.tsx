@@ -1,7 +1,7 @@
 import { createStyles, Text } from "@mantine/core";
-import img1 from "../../../Assets/wifiIcon.png";
-import img2 from "../../../Assets/simcardIcon.png";
-import img3 from "../../../Assets/help.png";
+import img1 from "../../../Assets/icons/wifiIcon.png";
+import img2 from "../../../Assets/icons/simcardIcon.png";
+import img3 from "../../../Assets/icons/help.png";
 const List = () => {
   const useStyles = createStyles((theme) => ({
     mainContainer: {

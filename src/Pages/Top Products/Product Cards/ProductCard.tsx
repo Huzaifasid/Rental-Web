@@ -4,11 +4,8 @@ import {
   Image,
   Text,
   Group,
-  Badge,
-  Button,
   ActionIcon,
   createStyles,
-  rem,
 } from "@mantine/core";
 import { useNavigate } from "react-router";
 
@@ -27,16 +24,12 @@ const useStyles = createStyles((theme) => ({
     fontWeight: "bold",
   },
   section: {
-    // borderBottom: `${rem(1)} solid ${
-    //   theme.colorScheme === "dark" ? theme.colors.dark[4] : theme.colors.gray[3]
-    // }`,
     paddingLeft: theme.spacing.md,
     paddingRight: theme.spacing.md,
     paddingBottom: theme.spacing.md,
   },
 
   like: {
-    // color: theme.colors.red[6],
     color: "#D9DCDF",
   },
 
@@ -52,31 +45,11 @@ interface BadgeCardProps {
   title: string;
   country: string;
   description: string;
-  badges: {
-    emoji: string;
-    label: string;
-  }[];
 }
 
-export function ProductCard({
-  image,
-  title,
-  description,
-  country,
-  badges,
-}: BadgeCardProps) {
-  const { classes, theme } = useStyles();
+export function ProductCard({ image, title, description }: BadgeCardProps) {
+  const { classes } = useStyles();
   const navigate = useNavigate();
-
-  // const features = badges.map((badge) => (
-  //   <Badge
-  //     color={theme.colorScheme === "dark" ? "dark" : "gray"}
-  //     key={badge.label}
-  //     leftSection={badge.emoji}
-  //   >
-  //     {badge.label}
-  //   </Badge>
-  // ));
 
   return (
     <Card
@@ -88,7 +61,6 @@ export function ProductCard({
       onClick={() => navigate("/product-detail")}
     >
       <Group position="right">
-        {/* <Button radius="md" style={{ flex: 1, display: "none" }}></Button> */}
         <ActionIcon mb={"20px"}>
           <IconHeart size="1.8rem" className={classes.like} stroke={1.5} />
         </ActionIcon>
@@ -108,7 +80,6 @@ export function ProductCard({
           <Text fz="lg" fw={500}>
             {title}
           </Text>
-          {/* <Badge size="sm">{country}</Badge> */}
         </Group>
         <Text fz="sm" mt="xs" className={classes.txt}>
           {description}
@@ -120,17 +91,7 @@ export function ProductCard({
           <span className={classes.span}> $59.90</span>
           /month
         </Text>
-        {/* <Group position="apart"></Group> */}
       </Card.Section>
-
-      {/* <Card.Section className={classes.section}>
-        <Text mt="md" className={classes.label} c="dimmed">
-          Perfect for you, if you enjoy
-        </Text>
-        <Group spacing={7} mt={5}>
-          {features}
-        </Group>
-      </Card.Section> */}
     </Card>
   );
 }

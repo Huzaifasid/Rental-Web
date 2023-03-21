@@ -1,4 +1,3 @@
-import { useDisclosure } from "@mantine/hooks";
 import {
   Modal,
   Button,
@@ -7,9 +6,8 @@ import {
   TextInput,
   Divider,
 } from "@mantine/core";
-import loginIcon from "../../Assets/loginIcon.png";
+import loginIcon from "../../Assets/icons/loginIcon.png";
 const LoginModal = (props: any) => {
-  const [opened, { open, close }] = useDisclosure(false);
   return (
     <>
       <Modal

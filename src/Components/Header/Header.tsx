@@ -15,18 +15,18 @@ import {
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 
-import { IconChevronDown, IconWorld } from "@tabler/icons-react";
+import { IconChevronDown } from "@tabler/icons-react";
 import LoginModal from "../../Pages/Login/LoginModal";
 import RegisterModal from "../../Pages/Register/RegisterModal";
 import { useNavigate } from "react-router";
 import SearchBar from "../SearchBar/SearchBar";
-import cameraLogo from "../../Assets/camera.png";
-import watchLogo from "../../Assets/watch.png";
-import mobileLogo from "../../Assets/mobile.png";
-import projectorLogo from "../../Assets/projector.png";
-import laptopLogo from "../../Assets/laptop.png";
-import computerLogo from "../../Assets/computer.png";
-import navIcon from "../../Assets/navbarIcon.png";
+import cameraLogo from "../../Assets/Category Dropdown Icon/camera.png";
+import watchLogo from "../../Assets/Category Dropdown Icon/watch.png";
+import mobileLogo from "../../Assets/Category Dropdown Icon/mobile.png";
+import projectorLogo from "../../Assets/Category Dropdown Icon/projector.png";
+import laptopLogo from "../../Assets/Category Dropdown Icon/laptop.png";
+import computerLogo from "../../Assets/Category Dropdown Icon/computer.png";
+import navIcon from "../../Assets/icons/navbarIcon.png";
 const HEADER_HEIGHT = rem(60);
 
 const useStyles = createStyles((theme) => ({
@@ -65,6 +65,7 @@ const useStyles = createStyles((theme) => ({
     "@media (max-width: 1024px)": {
       maxWidth: "100%",
     },
+
     "@media (max-width: 425px)": {
       maxWidth: "100%",
     },
@@ -102,6 +103,10 @@ const useStyles = createStyles((theme) => ({
         theme.colorScheme === "dark"
           ? theme.colors.dark[6]
           : theme.colors.gray[0],
+    },
+    "@media (max-width: 768px)": {
+      padding: `${rem(2)} ${rem(2)}`,
+      fontSize: "0.8rem",
     },
 
     [theme.fn.smallerThan("sm")]: {
@@ -474,7 +479,7 @@ export function HeaderResponsive({ links }: HeaderResponsiveProps) {
                     onClick={(event) => {
                       event.preventDefault();
                       setActive("/categories");
-                      navigate("/categories");
+                      // navigate("/categories");
                       close();
                     }}
                   >

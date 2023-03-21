@@ -1,7 +1,5 @@
 import {
   createStyles,
-  Badge,
-  Group,
   Title,
   Text,
   Card,
@@ -15,21 +13,18 @@ import { IconGauge, IconUser, IconCookie } from "@tabler/icons-react";
 const mockdata = [
   {
     title: "Search for a product",
-    // description:
-    //   "This dust is actually a powerful poison that will even make a pro wrestler sick, Regice cloaks itself with frigid air of -328 degrees Fahrenheit",
     icon: IconGauge,
+    id: 1,
   },
   {
     title: "Search for a product",
-    // description:
-    //   "People say it can run at the same speed as lightning striking, Its icy body is so cold, it will not melt even if it is immersed in magma",
     icon: IconUser,
+    id: 2,
   },
   {
     title: "Search for a product",
-    // description:
-    //   "They’re popular, but they’re rare. Trainers who show them off recklessly may be targeted by thieves",
     icon: IconCookie,
+    id: 3,
   },
 ];
 
@@ -46,17 +41,6 @@ const useStyles = createStyles((theme) => ({
   description: {
     maxWidth: 600,
     margin: "auto",
-
-    // "&::after": {
-    //   content: '""',
-    //   display: "block",
-    //   backgroundColor: theme.fn.primaryColor(),
-    //   width: rem(45),
-    //   height: rem(2),
-    //   marginTop: theme.spacing.sm,
-    //   marginLeft: "auto",
-    //   marginRight: "auto",
-    // },
   },
 
   card: {
@@ -67,52 +51,42 @@ const useStyles = createStyles((theme) => ({
     color: "white",
   },
 
-  //   cardTitle: {
-  //     "&::after": {
-  //       content: '""',
-  //       display: "block",
-  //       backgroundColor: theme.fn.primaryColor(),
-  //       width: rem(45),
-  //       height: rem(2),
-  //       marginTop: theme.spacing.sm,
-  //     },
-  //   },
-
   btn: {
     marginTop: "20px",
     backgroundColor: "#834BFF;",
     borderRadius: "12px",
   },
   btnIcon: {
-    // marginTop: "20px",
     backgroundColor: "#242434",
     borderRadius: "12px",
+  },
+  grid: {
+    "@media (max-width: 768px)": {
+      display: "flex",
+    },
+    "@media (max-width: 425px)": {
+      alignItems: "center",
+      flexDirection: "column",
+    },
   },
 }));
 
 export function Contents() {
-  const { classes, theme } = useStyles();
+  const { classes } = useStyles();
   const features = mockdata.map((feature) => (
     <Card
-      key={feature.title}
+      key={feature.id}
       shadow="md"
       radius="md"
       className={classes.card}
       padding="xl"
     >
       <Button className={classes.btnIcon}>
-        <feature.icon
-          //   size={rem(50)}
-          stroke={2}
-          //   color={theme.fn.primaryColor()}
-        />
+        <feature.icon stroke={2} />
       </Button>
       <Text fz="lg" fw={500} mt="md">
         {feature.title}
       </Text>
-      {/* <Text fz="sm" c="dimmed" mt="sm">
-        {feature.description}
-      </Text> */}
     </Card>
   ));
 
@@ -129,6 +103,7 @@ export function Contents() {
       </Text>
 
       <SimpleGrid
+        className={classes.grid}
         cols={3}
         spacing="xl"
         mt={50}

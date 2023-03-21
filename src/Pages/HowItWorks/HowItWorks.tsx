@@ -7,9 +7,9 @@ import {
   Group,
 } from "@mantine/core";
 import { ArticleCard } from "./Card";
-import img1 from "../../Assets/Product1img.png";
-import img2 from "../../Assets/Product2img.png";
-import img3 from "../../Assets/Product3img.png";
+import img1 from "../../Assets/Product/Product1img.png";
+import img2 from "../../Assets/Product/Product2img.png";
+import img3 from "../../Assets/Product/Product3img.png";
 
 const useStyles = createStyles((theme) => ({
   wrapper: {

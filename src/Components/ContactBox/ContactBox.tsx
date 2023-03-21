@@ -6,7 +6,6 @@ import {
   Text,
   Title,
 } from "@mantine/core";
-import React from "react";
 
 const ContactBox = () => {
   const useStyles = createStyles((theme) => ({
@@ -48,10 +47,6 @@ const ContactBox = () => {
       },
     },
 
-    highlight: {
-      color: theme.colors[theme.primaryColor][4],
-    },
-
     description: {
       color: theme.colors.gray[0],
       textAlign: "center",
@@ -59,43 +54,6 @@ const ContactBox = () => {
       [theme.fn.smallerThan("xs")]: {
         fontSize: theme.fontSizes.md,
         textAlign: "left",
-      },
-    },
-
-    controls: {
-      marginTop: `calc(${theme.spacing.xl} * 1.5)`,
-      display: "flex",
-      justifyContent: "center",
-      paddingLeft: theme.spacing.md,
-      paddingRight: theme.spacing.md,
-
-      [theme.fn.smallerThan("xs")]: {
-        flexDirection: "column",
-      },
-    },
-
-    control: {
-      height: rem(42),
-      fontSize: theme.fontSizes.md,
-
-      "&:not(:first-of-type)": {
-        marginLeft: theme.spacing.md,
-      },
-
-      [theme.fn.smallerThan("xs")]: {
-        "&:not(:first-of-type)": {
-          marginTop: theme.spacing.md,
-          marginLeft: 0,
-        },
-      },
-    },
-
-    secondaryControl: {
-      color: theme.white,
-      backgroundColor: "rgba(255, 255, 255, .4)",
-
-      "&:hover": {
-        backgroundColor: "rgba(255, 255, 255, .45) !important",
       },
     },
 
@@ -109,11 +67,9 @@ const ContactBox = () => {
       justifyContent: "space-between",
     },
   }));
-  const { classes, cx } = useStyles();
+  const { classes } = useStyles();
   return (
     <div className={classes.wrapper}>
-      {/* <Overlay color="#000" opacity={0.65} zIndex={1} /> */}
-
       <div className={classes.inner}>
         <Title className={classes.title}>
           With Rental anyone can deploy and find what you need

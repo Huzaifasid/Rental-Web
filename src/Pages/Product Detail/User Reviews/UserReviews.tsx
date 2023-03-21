@@ -9,9 +9,9 @@ import {
   Text,
 } from "@mantine/core";
 import { IconChevronDown } from "@tabler/icons-react";
-import user1 from "../../../Assets/userreview1.png";
-import user2 from "../../../Assets/userreview2.png";
-import user3 from "../../../Assets/userreview3.png";
+import user1 from "../../../Assets/user/userreview1.png";
+import user2 from "../../../Assets/user/userreview2.png";
+import user3 from "../../../Assets/user/userreview3.png";
 
 const UserReviews = () => {
   const useStyles = createStyles((theme) => ({

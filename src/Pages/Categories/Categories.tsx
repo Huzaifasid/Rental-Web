@@ -1,12 +1,12 @@
 import { Box, Button, createStyles, Group, Text } from "@mantine/core";
 import { IconArrowNarrowLeft, IconArrowNarrowRight } from "@tabler/icons-react";
 import CategoryBox from "./CategoryBox/CategoryBox";
-import category1 from "../../Assets/category1.png";
-import category2 from "../../Assets/category2.png";
-import category3 from "../../Assets/category3.png";
-import category4 from "../../Assets/category4.png";
-import category5 from "../../Assets/category5.png";
-import category6 from "../../Assets/category6.png";
+import category1 from "../../Assets/category/category1.png";
+import category2 from "../../Assets/category/category2.png";
+import category3 from "../../Assets/category/category3.png";
+import category4 from "../../Assets/category/category4.png";
+import category5 from "../../Assets/category/category5.png";
+import category6 from "../../Assets/category/category6.png";
 const Categories = () => {
   let categBoxArr = [
     {

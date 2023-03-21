@@ -1,6 +1,6 @@
 import { Box, Button, createStyles, Grid, Select, Text } from "@mantine/core";
 import { IconChevronDown } from "@tabler/icons-react";
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router";
 import { FloatingLabelInput } from "../../../Components/FloatingLabelInput/FloatingLabelInput";
 
@@ -21,7 +21,7 @@ const ShippingDetails = () => {
     },
   }));
   const [color, setColor] = useState("");
-  const { classes, theme } = useStyles();
+  const { classes } = useStyles();
   const navigate = useNavigate();
   const [data, setData] = useState([
     { value: "+1", label: "+1" },
@@ -45,7 +45,6 @@ const ShippingDetails = () => {
             },
             "@media (max-width: 375px)": {
               width: "100%",
-              //   fontSize: "22px",
             },
           }}
         >
@@ -67,13 +66,6 @@ const ShippingDetails = () => {
           <Grid align={"flex-end"}>
             <Grid.Col span={2}>
               <Select
-                // label={
-                //   <>
-                //     <Text fz={"13px"} transform="uppercase" color={"#A0A0A7"}>
-                //       Country Code
-                //     </Text>
-                //   </>
-                // }
                 data={data}
                 placeholder="+1"
                 nothingFound="Nothing found"

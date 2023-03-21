@@ -67,7 +67,6 @@ export function FloatingLabelInput(props: any) {
       }
       style={{
         borderBottom: "1px solid #A0A0A7",
-        // paddingLeft: "10px",
       }}
       classNames={classes}
       value={value}

@@ -16,7 +16,7 @@ const UnderTheHood = () => {
     },
   }));
 
-  const { classes, theme } = useStyles();
+  const { classes } = useStyles();
   let listArr = [
     {
       heading: "GPU",

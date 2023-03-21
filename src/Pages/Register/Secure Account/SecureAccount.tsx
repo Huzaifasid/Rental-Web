@@ -1,7 +1,7 @@
 import { Modal, Button, Text, Loader } from "@mantine/core";
 import { useState } from "react";
 
-import loginIcon from "../../../Assets/loginIcon.png";
+import loginIcon from "../../../Assets/icons/loginIcon.png";
 
 import { FloatingLabelPassword } from "../../../Components/FloatingPasswordInput/FloatingLabelPassword";
 import ReadyToGo from "../Ready To Go Modal/ReadyToGo";

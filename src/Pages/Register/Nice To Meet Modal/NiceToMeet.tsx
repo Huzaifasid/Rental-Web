@@ -1,8 +1,8 @@
 import { Modal, Button, Text } from "@mantine/core";
 import { useState } from "react";
 import { FloatingLabelInput } from "../../../Components/FloatingLabelInput/FloatingLabelInput";
-import loginIcon from "../../../Assets/loginIcon.png";
-import Information from "../../../Assets/information-circle.png";
+import loginIcon from "../../../Assets/icons/loginIcon.png";
+import Information from "../../../Assets/icons/information-circle.png";
 import DateOfBirth from "../Date Of Birth Modal/DateOfBirth";
 
 const NiceToMeet = (props: any) => {

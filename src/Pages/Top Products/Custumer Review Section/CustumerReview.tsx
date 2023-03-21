@@ -1,28 +1,15 @@
 import {
-  Title,
   Text,
-  Container,
   Button,
   Flex,
   Progress,
-  Overlay,
   createStyles,
   rem,
   Group,
-  Col,
-  Grid,
 } from "@mantine/core";
 
-import {
-  IconArrowLeft,
-  IconArrowNarrowLeft,
-  IconArrowNarrowRight,
-  IconArrowRight,
-} from "@tabler/icons-react";
-// import { ArticleCard } from "./Card";
-import img1 from "../../../Assets/Product1img.png";
-import img2 from "../../../Assets/Product2img.png";
-import img3 from "../../../Assets/Product3img.png";
+import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
+
 import { CommentSection } from "./CommentSection";
 
 const useStyles = createStyles((theme) => ({
@@ -134,7 +121,7 @@ const useStyles = createStyles((theme) => ({
 }));
 
 export function CustumerReview() {
-  const { classes, cx } = useStyles();
+  const { classes } = useStyles();
   let commentData = {
     postedAt: "10 minutes ago",
     body: "<p>Forem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus.</p>",
@@ -180,7 +167,7 @@ export function CustumerReview() {
             </Button>
           </Flex>
         </Group>
-        {/* width: 481px; */}
+
         <Flex
           mih={50}
           gap="lg"

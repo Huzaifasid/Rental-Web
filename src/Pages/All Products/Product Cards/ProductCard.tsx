@@ -12,6 +12,7 @@ import { useNavigate } from "react-router";
 const useStyles = createStyles((theme) => ({
   card: {
     cursor: "pointer",
+    width: "340px",
     backgroundColor:
       theme.colorScheme === "dark" ? theme.colors.dark[7] : theme.white,
   },
@@ -24,16 +25,12 @@ const useStyles = createStyles((theme) => ({
     fontWeight: "bold",
   },
   section: {
-    // borderBottom: `${rem(1)} solid ${
-    //   theme.colorScheme === "dark" ? theme.colors.dark[4] : theme.colors.gray[3]
-    // }`,
     paddingLeft: theme.spacing.md,
     paddingRight: theme.spacing.md,
     paddingBottom: theme.spacing.md,
   },
 
   like: {
-    // color: theme.colors.red[6],
     color: "#D9DCDF",
   },
 

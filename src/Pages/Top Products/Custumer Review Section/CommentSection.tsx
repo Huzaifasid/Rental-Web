@@ -6,8 +6,6 @@ import {
   TypographyStylesProvider,
   Paper,
   Flex,
-  rem,
-  Divider,
 } from "@mantine/core";
 
 import { IconQuote, IconThumbUp } from "@tabler/icons-react";
@@ -15,14 +13,12 @@ import { IconQuote, IconThumbUp } from "@tabler/icons-react";
 const useStyles = createStyles((theme) => ({
   comment: {
     width: "450px",
-    // padding: "30px",
 
     padding: `${theme.spacing.lg} ${theme.spacing.xl}`,
     backgroundColor: "#292938",
   },
 
   body: {
-    // paddingLeft: rem(54),
     paddingTop: theme.spacing.sm,
     paddingBottom: theme.spacing.sm,
     fontSize: theme.fontSizes.sm,
@@ -67,11 +63,9 @@ export function CommentSection({ postedAt, body, author }: CommentHtmlProps) {
         />
       </TypographyStylesProvider>
 
-      {/* <Divider size="xs" /> */}
       <Group
         position="apart"
         style={{
-          // border-top: 1px solid rgba(160, 160, 167, 0.35);
           borderTop: "1px solid rgba(160, 160, 167, 0.35)",
         }}
       >

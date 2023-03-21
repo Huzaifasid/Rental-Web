@@ -1,8 +1,8 @@
 import { Box, createStyles, Text } from "@mantine/core";
-import img1 from "../../../Assets/Shippingimg1.png";
-import img2 from "../../../Assets/Shippingimg2.png";
-import img3 from "../../../Assets/Shippingimg3.png";
-import img4 from "../../../Assets/Shippingimg4.png";
+import img1 from "../../../Assets/shipping/Shippingimg1.png";
+import img2 from "../../../Assets/shipping/Shippingimg2.png";
+import img3 from "../../../Assets/shipping/Shippingimg3.png";
+import img4 from "../../../Assets/shipping/Shippingimg4.png";
 
 const Lists = () => {
   const useStyles = createStyles((theme) => ({

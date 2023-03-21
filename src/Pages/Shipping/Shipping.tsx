@@ -2,7 +2,7 @@ import { createStyles, Grid, Text } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 import ItemsCart from "./ItemsCart/ItemsCart";
 import ShippingDetails from "./ShippingDetails/ShippingDetails";
-import leftArrow from "../../Assets/leftDirectArrow.png";
+import leftArrow from "../../Assets/icons/leftDirectArrow.png";
 const Shipping = () => {
   const useStyles = createStyles((theme) => ({
     container: {

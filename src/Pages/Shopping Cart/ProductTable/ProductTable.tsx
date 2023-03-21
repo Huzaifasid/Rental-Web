@@ -1,25 +1,16 @@
 import {
   createStyles,
   Table,
-  Progress,
-  Anchor,
   Text,
-  Group,
   ScrollArea,
   rem,
   Box,
   Button,
 } from "@mantine/core";
 import { useCounter } from "@mantine/hooks";
-import {
-  IconChevronDown,
-  IconCircleX,
-  IconCircleXFilled,
-  IconMinus,
-  IconPlus,
-} from "@tabler/icons-react";
-import crossImg from "../../../Assets/remove-circle.png";
-import image from "../../../Assets/tableDetailImg1.png";
+import { IconMinus, IconPlus } from "@tabler/icons-react";
+import crossImg from "../../../Assets/icons/remove-circle.png";
+import image from "../../../Assets/shopping cart/tableDetailImg1.png";
 import { DropDownBtn } from "../DropDownBtn/DropDownBtn";
 const useStyles = createStyles((theme) => ({
   progressBar: {
@@ -35,9 +26,7 @@ const useStyles = createStyles((theme) => ({
     alignItems: "center",
     gap: "10px",
   },
-  txtBox: {
-    // marginLeft: "10px",
-  },
+  txtBox: {},
 }));
 
 interface TableReviewsProps {
@@ -50,13 +39,9 @@ interface TableReviewsProps {
 }
 
 export function ProductTable({ data }: TableReviewsProps) {
-  const { classes, theme } = useStyles();
+  const { classes } = useStyles();
   const [count, handlers] = useCounter(0, { min: 0, max: 10 });
   const rows = data.map((row) => {
-    const totalReviews = row.reviews.negative + row.reviews.positive;
-    const positiveReviews = (row.reviews.positive / totalReviews) * 100;
-    const negativeReviews = (row.reviews.negative / totalReviews) * 100;
-
     return (
       <tr key={row.title}>
         <td>
@@ -69,18 +54,12 @@ export function ProductTable({ data }: TableReviewsProps) {
               <Text color={"rgba(16, 36, 55, 0.5)"}>Alexander in London</Text>
             </div>
           </Box>
-          {/* <Anchor component="button" fz="sm">
-            {row.title}
-          </Anchor> */}
         </td>
-        {/* <td>{row.year}</td> */}
+
         <td>
           <DropDownBtn />
         </td>
         <td>
-          {/* <Anchor component="button" fz="sm">
-            {row.author}
-          </Anchor> */}
           <Button
             rightIcon={
               <IconPlus
@@ -103,39 +82,11 @@ export function ProductTable({ data }: TableReviewsProps) {
             {count}
           </Button>
         </td>
-        {/* <td>{Intl.NumberFormat().format(totalReviews)}</td> */}
+
         <td>
           <Text>12 Mar, 2023</Text>
         </td>
-        {/* <td>
-          <Group position="apart">
-            <Text fz="xs" c="teal" weight={700}>
-              {positiveReviews.toFixed(0)}%
-            </Text>
-            <Text fz="xs" c="red" weight={700}>
-              {negativeReviews.toFixed(0)}%
-            </Text>
-          </Group>
-          <Progress
-            classNames={{ bar: classes.progressBar }}
-            sections={[
-              {
-                value: positiveReviews,
-                color:
-                  theme.colorScheme === "dark"
-                    ? theme.colors.teal[9]
-                    : theme.colors.teal[6],
-              },
-              {
-                value: negativeReviews,
-                color:
-                  theme.colorScheme === "dark"
-                    ? theme.colors.red[9]
-                    : theme.colors.red[6],
-              },
-            ]}
-          />
-        </td> */}
+
         <td>
           <Text> $30.31</Text>
         </td>

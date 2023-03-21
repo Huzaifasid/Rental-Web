@@ -1,7 +1,5 @@
-import { createStyles, Text, Button, Box, TextInput } from "@mantine/core";
+import { createStyles, Text, Box, TextInput } from "@mantine/core";
 
-import { useState } from "react";
-import { FloatingLabelInput } from "../../../Components/FloatingLabelInput/FloatingLabelInput";
 import Lists from "../Lists/Lists";
 
 const ItemsCart = () => {
@@ -39,10 +37,8 @@ const ItemsCart = () => {
     },
   }));
 
-  const { classes, theme } = useStyles();
-  //   const [value, setValue] = useState<Date | null>(null);
-  //   const [value2, setValue2] = useState<Date | null>(null);
-  //   const [color, setColor] = useState("");
+  const { classes } = useStyles();
+
   return (
     <>
       <div className={classes.mainContainer}>
@@ -70,7 +66,6 @@ const ItemsCart = () => {
               </Text>
             </>
           }
-          //   placeholder="PROMO CODE"
           variant="unstyled"
         />
 

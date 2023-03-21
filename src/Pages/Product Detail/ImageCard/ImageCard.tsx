@@ -1,10 +1,10 @@
 import { Box, createStyles, Flex, Grid, Group, Image } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 import { IconZoomIn } from "@tabler/icons-react";
-import React, { useState } from "react";
-import img1 from "../../../Assets/ProductdetailImg1.png";
-import img2 from "../../../Assets/card6img.png";
-import img3 from "../../../Assets/card5img.png";
+import { useState } from "react";
+import img1 from "../../../Assets/Product/ProductdetailImg1.png";
+import img2 from "../../../Assets/card/card6img.png";
+import img3 from "../../../Assets/card/card5img.png";
 const ImageCard = () => {
   const useStyles = createStyles((theme) => ({
     boxImg: {

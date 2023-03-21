@@ -1,27 +1,5 @@
-import {
-  createStyles,
-  List,
-  Text,
-  ThemeIcon,
-  Radio,
-  Button,
-  Box,
-  Group,
-  Rating,
-  TextInput,
-} from "@mantine/core";
-import {
-  IconCircleCheck,
-  IconCircleDashed,
-  IconHeart,
-  IconShare,
-} from "@tabler/icons-react";
-import icon1 from "../../../Assets/umbrellaIcon.png";
-import icon2 from "../../../Assets/shoppingbasketIcon.png";
-import icon3 from "../../../Assets/deliveryIcon.png";
-import icon4 from "../../../Assets/giftIcon.png";
-import { DateInput } from "@mantine/dates";
-import { useState } from "react";
+import { createStyles, Text, Button, Box, TextInput } from "@mantine/core";
+
 import { useNavigate } from "react-router";
 
 const Checkout = () => {
@@ -64,9 +42,7 @@ const Checkout = () => {
     },
   }));
 
-  const { classes, theme } = useStyles();
-  const [value, setValue] = useState<Date | null>(null);
-  const [value2, setValue2] = useState<Date | null>(null);
+  const { classes } = useStyles();
   const navigate = useNavigate();
 
   return (
@@ -105,13 +81,9 @@ const Checkout = () => {
         </div>
 
         <TextInput
-          style={{
-            borderBottom: "1px solid grey",
-            // paddingLeft: "10px",
-          }}
+          style={{ borderBottom: "1px solid grey" }}
           mt="40px"
           description="PROMO CODE"
-          //   placeholder="PROMO CODE"
           variant="unstyled"
         />
         <Box className={classes.txtBox} mt="150px">

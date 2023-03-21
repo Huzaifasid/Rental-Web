@@ -1,21 +1,5 @@
-import {
-  Box,
-  Button,
-  createStyles,
-  Flex,
-  Grid,
-  Select,
-  Radio,
-  Text,
-  Checkbox,
-  Group,
-  Image,
-} from "@mantine/core";
-
-import React, { useState } from "react";
-import img from "../../../Assets/CheckoutImg.png";
-import { FloatingLabelInput } from "../../../Components/FloatingLabelInput/FloatingLabelInput";
-
+import { Button, createStyles, Text, Image } from "@mantine/core";
+import img from "../../../Assets/checkout/CheckoutImg.png";
 const CheckoutDetails = () => {
   const useStyles = createStyles((theme) => ({
     flexInput: {
@@ -32,12 +16,9 @@ const CheckoutDetails = () => {
       width: "70%",
     },
   }));
-  const [color, setColor] = useState("");
-  const { classes, theme } = useStyles();
-  const [data, setData] = useState([
-    { value: "+1", label: "+1" },
-    { value: "+43", label: "+43" },
-  ]);
+
+  const { classes } = useStyles();
+
   return (
     <>
       <div className={classes.flexBox}>
@@ -57,7 +38,6 @@ const CheckoutDetails = () => {
             },
             "@media (max-width: 375px)": {
               width: "100%",
-              //   fontSize: "22px",
             },
           }}
         >
@@ -104,10 +84,6 @@ const CheckoutDetails = () => {
           }}
           radius="md"
           mt={"30px"}
-
-          // onClick={() => {
-          //   setShowNext(true);
-          // }}
         >
           Back to Store
         </Button>

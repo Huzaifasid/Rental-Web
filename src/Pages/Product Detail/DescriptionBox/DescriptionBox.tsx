@@ -21,7 +21,7 @@ const DescriptionBox = (props: { img: any; text: String }) => {
     },
   }));
 
-  const { classes, theme } = useStyles();
+  const { classes } = useStyles();
   return (
     <>
       <Box className={classes.box}>

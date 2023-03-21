@@ -5,7 +5,6 @@ import {
   ThemeIcon,
   MantineProvider,
   getStylesRef,
-  rem,
 } from "@mantine/core";
 import { IconPlus } from "@tabler/icons-react";
 

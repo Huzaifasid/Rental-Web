@@ -8,10 +8,10 @@ import {
   Rating,
 } from "@mantine/core";
 import { IconHeart, IconShare } from "@tabler/icons-react";
-import icon1 from "../../../Assets/umbrellaIcon.png";
-import icon2 from "../../../Assets/shoppingbasketIcon.png";
-import icon3 from "../../../Assets/deliveryIcon.png";
-import icon4 from "../../../Assets/giftIcon.png";
+import icon1 from "../../../Assets/icons/umbrellaIcon.png";
+import icon2 from "../../../Assets/icons/shoppingbasketIcon.png";
+import icon3 from "../../../Assets/icons/deliveryIcon.png";
+import icon4 from "../../../Assets/icons/giftIcon.png";
 import { DateInput } from "@mantine/dates";
 import { useState } from "react";
 import { useNavigate } from "react-router";

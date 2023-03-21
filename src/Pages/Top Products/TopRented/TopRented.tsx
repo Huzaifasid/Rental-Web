@@ -1,4 +1,4 @@
-import { createStyles, Card, Image, Avatar, Text, Group } from "@mantine/core";
+import { createStyles, Card, Image, Text, Group } from "@mantine/core";
 
 const useStyles = createStyles((theme) => ({
   card: {
@@ -37,8 +37,6 @@ export function TopRented({
   image,
   category,
   title,
-  date,
-  author,
 }: ArticleCardVerticalProps) {
   const { classes } = useStyles();
   return (
@@ -60,16 +58,6 @@ export function TopRented({
                 /Month
               </Text>
             </Group>
-            {/* <Group spacing="xs" noWrap>
-              <Avatar size={20} src={author.avatar} />
-              <Text size="xs">{author.name}</Text>
-            </Group>
-            <Text size="xs" color="dimmed">
-              •
-            </Text>
-            <Text size="xs" color="dimmed">
-              {date}
-            </Text> */}
           </Group>
         </div>
       </Group>

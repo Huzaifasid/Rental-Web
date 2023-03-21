@@ -1,6 +1,5 @@
 import {
   Col,
-  Container,
   Progress,
   Button,
   createStyles,
@@ -9,36 +8,42 @@ import {
   Group,
   Text,
 } from "@mantine/core";
-import React from "react";
+
 import { ProductCard } from "./Product Cards/ProductCard";
 import Sidebar from "./Sidebar/Sidebar";
-import card1img from "../../Assets/card1img.png";
-import card2img from "../../Assets/card2img.png";
-import card3img from "../../Assets/card3img.png";
-import card4img from "../../Assets/card4img.png";
-import card5img from "../../Assets/card5img.png";
-import card6img from "../../Assets/card6img.png";
-import card7img from "../../Assets/card7img.png";
-import card8img from "../../Assets/card8img.png";
+import card1img from "../../Assets/card/card1img.png";
+import card2img from "../../Assets/card/card2img.png";
+import card3img from "../../Assets/card/card3img.png";
+import card4img from "../../Assets/card/card4img.png";
+import card5img from "../../Assets/card/card5img.png";
+import card6img from "../../Assets/card/card6img.png";
+import card7img from "../../Assets/card/card7img.png";
+import card8img from "../../Assets/card/card8img.png";
 import { useMediaQuery } from "@mantine/hooks";
 const AllProducts = () => {
   const useStyles = createStyles((theme) => ({
     group: {
       justifyContent: "space-between",
-      // alignItems: "flex-start",
-      // gap: "18px",
       width: "100%",
-      // margin: "auto",
     },
     container: {
       marginLeft: "170px",
       paddingRight: "180px",
 
-      [theme.fn.smallerThan("md")]: {
-        paddingLeft: "10px",
-        paddingRight: "10px",
-        margin: "auto",
+      "@media (max-width: 1024px)": {
+        marginLeft: "80px",
+        paddingRight: "100px",
       },
+      "@media (max-width: 768px)": {
+        margin: "auto",
+        marginLeft: "30px",
+        paddingRight: "30px",
+      },
+      // [theme.fn.smallerThan("md")]: {
+      //   paddingLeft: "10px",
+      //   paddingRight: "10px",
+      //   margin: "auto",
+      // },
     },
     container2: {
       marginLeft: "170px",
@@ -62,45 +67,144 @@ const AllProducts = () => {
 
     sideFlex: {
       display: "flex",
-      justifyContent: "space-between",
-      gap: "30px",
+
+      gap: "40px",
       "@media (max-width: 1024px)": {
         gap: "20px",
       },
-      [theme.fn.smallerThan("md")]: {
+
+      "@media (max-width: 768px)": {
+        gap: "80px",
+      },
+      "@media (max-width: 425px)": {
         flexDirection: "column",
+      },
+    },
+    gridWidth: {
+      width: "100%",
+      "@media (max-width: 768px)": {
+        width: "80%",
       },
     },
   }));
 
-  const { classes, theme } = useStyles();
+  const { classes } = useStyles();
 
   let images = {
     img1: card1img,
     img2: card2img,
     img3: card3img,
     img4: card4img,
-    img5: card5img,
-    img6: card6img,
-    img7: card7img,
-    img8: card8img,
   };
+  let imgArray = [
+    {
+      img: card1img,
+      id: 1,
+    },
+    {
+      img: card2img,
+      id: 2,
+    },
+    {
+      img: card3img,
+      id: 3,
+    },
+    {
+      img: card4img,
+      id: 4,
+    },
+    {
+      img: card5img,
+      id: 5,
+    },
+    {
+      img: card6img,
+      id: 6,
+    },
+    {
+      img: card7img,
+      id: 7,
+    },
+    {
+      img: card8img,
+      id: 8,
+    },
+    {
+      img: card1img,
+      id: 9,
+    },
+    {
+      img: card2img,
+      id: 10,
+    },
+    {
+      img: card3img,
+      id: 11,
+    },
+    {
+      img: card4img,
+      id: 12,
+    },
+    {
+      img: card5img,
+      id: 13,
+    },
+    {
+      img: card6img,
+      id: 14,
+    },
+    {
+      img: card7img,
+      id: 15,
+    },
+    {
+      img: card8img,
+      id: 16,
+    },
+    {
+      img: card1img,
+      id: 17,
+    },
+    {
+      img: card2img,
+      id: 18,
+    },
+  ];
   let data = {
     title: "HTC Vice XR Elite Virtual Reality",
     country: "Croatia",
     description: "1920 * 1920 pixels per eye (3640 x 1920 pixels in total)",
   };
 
+  const islap2 = useMediaQuery("(max-width: 1440px)");
   const islap = useMediaQuery("(max-width: 1024px)");
   const isTab = useMediaQuery("(max-width: 768px)");
   const isMobile = useMediaQuery("(max-width: 425px)");
+  const isMobileS = useMediaQuery("(max-width: 320px)");
 
-  const span = isMobile ? 12 : isTab ? 6 : islap ? 6 : 4;
-  const span2 = isMobile ? 12 : isTab ? 6 : islap ? 6 : 3;
+  const span = isMobileS
+    ? 12
+    : isMobile
+    ? 10
+    : isTab
+    ? 10
+    : islap
+    ? 6
+    : islap2
+    ? 5
+    : 4;
 
-  // const isMobile = useMediaQuery("(max-width: 755px)");
-  // const span = isMobile ? 12 : 4;
-  // const span2 = isMobile ? 12 : 3;
+  const span2 = isMobileS
+    ? 12
+    : isMobile
+    ? 10
+    : isTab
+    ? 5
+    : islap
+    ? 6
+    : islap2
+    ? 5
+    : 3;
 
   return (
     <>
@@ -110,79 +214,19 @@ const AllProducts = () => {
         </Group>
         <div className={classes.sideFlex}>
           <Sidebar />
-          <Grid>
-            <Col span={span}>
-              <ProductCard
-                image={images.img1}
-                country={data.country}
-                description={data.description}
-                title={data.title}
-              />
-            </Col>
-            <Col span={span}>
-              <ProductCard
-                image={images.img2}
-                country={data.country}
-                description={data.description}
-                title={data.title}
-              />
-            </Col>
-            <Col span={span}>
-              <ProductCard
-                image={images.img3}
-                country={data.country}
-                description={data.description}
-                title={data.title}
-              />
-            </Col>
-            <Col span={span}>
-              <ProductCard
-                image={images.img4}
-                country={data.country}
-                description={data.description}
-                title={data.title}
-              />
-            </Col>
-            <Col span={span}>
-              <ProductCard
-                image={images.img5}
-                country={data.country}
-                description={data.description}
-                title={data.title}
-              />
-            </Col>
-            <Col span={span}>
-              <ProductCard
-                image={images.img6}
-                country={data.country}
-                description={data.description}
-                title={data.title}
-              />
-            </Col>
-            <Col span={span}>
-              <ProductCard
-                image={images.img7}
-                country={data.country}
-                description={data.description}
-                title={data.title}
-              />
-            </Col>
-            <Col span={span}>
-              <ProductCard
-                image={images.img8}
-                country={data.country}
-                description={data.description}
-                title={data.title}
-              />
-            </Col>
-            <Col span={span}>
-              <ProductCard
-                image={images.img1}
-                country={data.country}
-                description={data.description}
-                title={data.title}
-              />
-            </Col>
+          <Grid className={classes.gridWidth}>
+            {imgArray.map((item) => {
+              return (
+                <Col m={"auto"} span={span} key={item.id}>
+                  <ProductCard
+                    image={item.img}
+                    country={data.country}
+                    description={data.description}
+                    title={data.title}
+                  />
+                </Col>
+              );
+            })}
           </Grid>
         </div>
         <Flex
@@ -191,7 +235,6 @@ const AllProducts = () => {
           justify="flex-start"
           align="center"
           direction="column"
-          // wrap="wrap"
           mt={"50px"}
         >
           <Text fz="sm" fw={500} color="#A0A0A7">
@@ -208,7 +251,7 @@ const AllProducts = () => {
             Recently Viewed
           </Text>
           <Grid>
-            <Col span={span2}>
+            <Col m={"auto"} span={span2}>
               <ProductCard
                 image={images.img1}
                 country={data.country}
@@ -216,7 +259,7 @@ const AllProducts = () => {
                 title={data.title}
               />
             </Col>
-            <Col span={span2}>
+            <Col m={"auto"} span={span2}>
               <ProductCard
                 image={images.img2}
                 country={data.country}
@@ -224,7 +267,7 @@ const AllProducts = () => {
                 title={data.title}
               />
             </Col>
-            <Col span={span2}>
+            <Col m={"auto"} span={span2}>
               <ProductCard
                 image={images.img3}
                 country={data.country}
@@ -232,7 +275,7 @@ const AllProducts = () => {
                 title={data.title}
               />
             </Col>
-            <Col span={span2}>
+            <Col m={"auto"} span={span2}>
               <ProductCard
                 image={images.img4}
                 country={data.country}

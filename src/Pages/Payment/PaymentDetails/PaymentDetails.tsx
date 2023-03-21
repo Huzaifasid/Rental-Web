@@ -2,16 +2,14 @@ import {
   Box,
   Button,
   createStyles,
-  Flex,
   Grid,
-  Select,
   Radio,
   Text,
   Checkbox,
   Group,
 } from "@mantine/core";
-import { IconChevronDown } from "@tabler/icons-react";
-import React, { useState } from "react";
+
+import { useState } from "react";
 import { useNavigate } from "react-router";
 
 import { FloatingLabelInput } from "../../../Components/FloatingLabelInput/FloatingLabelInput";
@@ -33,7 +31,7 @@ const PaymentDetails = () => {
     },
   }));
   const [color, setColor] = useState("");
-  const { classes, theme } = useStyles();
+  const { classes } = useStyles();
 
   const navigate = useNavigate();
 
@@ -55,7 +53,6 @@ const PaymentDetails = () => {
             },
             "@media (max-width: 375px)": {
               width: "100%",
-              //   fontSize: "22px",
             },
           }}
         >

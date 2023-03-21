@@ -1,6 +1,6 @@
-import { Container, createStyles, Group, Image, rem } from "@mantine/core";
-import React from "react";
-import img from "../../../Assets/herosectionhome2.png";
+import { Container, createStyles, Image, rem } from "@mantine/core";
+
+import img from "../../../Assets/home/herosectionhome2.png";
 import { Contents } from "./Contents";
 
 const HeroSection2 = () => {
@@ -8,14 +8,11 @@ const HeroSection2 = () => {
     image: {
       width: "50%",
       flex: 1,
-
       [theme.fn.smallerThan("md")]: {
         display: "none",
       },
     },
-    group: {
-      // justifyContent: "center",
-    },
+    group: {},
 
     inner: {
       display: "flex",
@@ -48,9 +45,6 @@ const HeroSection2 = () => {
           </div>
         </Container>
       </div>
-
-      {/* <Group noWrap className={classes.group}>
-      </Group> */}
     </>
   );
 };

@@ -1,14 +1,11 @@
-import { Container, createStyles, Group, rem } from "@mantine/core";
-import React from "react";
+import { createStyles, Group, rem } from "@mantine/core";
 
 const Links = () => {
   const useStyles = createStyles((theme) => ({
     group: {
-      //   justifyContent: "space-around",
       alignItems: "flex-start",
       gap: "12px",
 
-      //   width: "82%",
       margin: "auto",
     },
     container: {
@@ -27,7 +24,6 @@ const Links = () => {
       paddingRight: theme.spacing.md,
       textDecoration: "none",
 
-      // color: theme.colorScheme === "dark" ? theme.white : theme.black,
       color: "#A0A0A7",
       fontWeight: 500,
       fontSize: theme.fontSizes.sm,
@@ -38,7 +34,6 @@ const Links = () => {
         alignItems: "center",
         width: "100%",
       },
-      //   "&:active": theme.activeStyles,
 
       ...theme.fn.hover({
         backgroundColor:
@@ -53,11 +48,7 @@ const Links = () => {
   return (
     <>
       <div>
-        <Group
-          sx={{ height: "100%" }}
-          spacing={0}
-          // className={classes.hiddenMobile}
-        >
+        <Group sx={{ height: "100%" }} spacing={0}>
           <a href={"/top-products"} className={classes.link}>
             All Categories
           </a>

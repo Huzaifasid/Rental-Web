@@ -1,25 +1,15 @@
-import {
-  Button,
-  Container,
-  createStyles,
-  Flex,
-  Group,
-  Progress,
-  Text,
-} from "@mantine/core";
-import React from "react";
+import { Button, createStyles, Group } from "@mantine/core";
 
-// import { ProductCard } from "./Product Cards/ProductCard";
 import { Grid, Col } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
-import card1img from "../../../Assets/card1img.png";
-import card2img from "../../../Assets/card2img.png";
-import card3img from "../../../Assets/card3img.png";
-import card4img from "../../../Assets/card4img.png";
-import card5img from "../../../Assets/card5img.png";
-import card6img from "../../../Assets/card6img.png";
-import card7img from "../../../Assets/card7img.png";
-import card8img from "../../../Assets/card8img.png";
+import card1img from "../../../Assets/card/card1img.png";
+import card2img from "../../../Assets/card/card2img.png";
+import card3img from "../../../Assets/card/card3img.png";
+import card4img from "../../../Assets/card/card4img.png";
+import card5img from "../../../Assets/card/card5img.png";
+import card6img from "../../../Assets/card/card6img.png";
+import card7img from "../../../Assets/card/card7img.png";
+import card8img from "../../../Assets/card/card8img.png";
 import { ProductCard } from "../Product Cards/ProductCard";
 import { useNavigate } from "react-router";
 
@@ -27,10 +17,8 @@ const RecommendedProducts = () => {
   const useStyles = createStyles((theme) => ({
     group: {
       justifyContent: "space-between",
-      // alignItems: "flex-start",
-      // gap: "18px",
+
       width: "100%",
-      // margin: "auto",
     },
     container: {
       marginTop: "50px",
@@ -50,46 +38,67 @@ const RecommendedProducts = () => {
     },
   }));
 
-  const { classes, theme } = useStyles();
-  const isMobile = useMediaQuery("(max-width: 755px)");
+  const { classes } = useStyles();
+
   const navigate = useNavigate();
-  const span = isMobile ? 12 : 3;
-  let images = {
-    img1: card1img,
-    img2: card2img,
-    img3: card3img,
-    img4: card4img,
-    img5: card5img,
-    img6: card6img,
-    img7: card7img,
-    img8: card8img,
-  };
+  const islap2 = useMediaQuery("(max-width: 1400px)");
+  const islap = useMediaQuery("(max-width: 1100px)");
+  const isTab = useMediaQuery("(max-width: 768px)");
+  const isMobile = useMediaQuery("(max-width: 425px)");
+  const isMobileS = useMediaQuery("(max-width: 320px)");
+
+  const span = isMobileS
+    ? 12
+    : isMobile
+    ? 10
+    : isTab
+    ? 5
+    : islap
+    ? 6
+    : islap2
+    ? 4
+    : 3;
+
+  let imgArray = [
+    {
+      img: card1img,
+      id: 1,
+    },
+    {
+      img: card2img,
+      id: 2,
+    },
+    {
+      img: card3img,
+      id: 3,
+    },
+    {
+      img: card4img,
+      id: 4,
+    },
+  ];
+  let imgArray2 = [
+    {
+      img: card5img,
+      id: 1,
+    },
+    {
+      img: card6img,
+      id: 2,
+    },
+    {
+      img: card7img,
+      id: 3,
+    },
+    {
+      img: card8img,
+      id: 4,
+    },
+  ];
   let data = {
     title: "HTC Vice XR Elite Virtual Reality",
     country: "Croatia",
     description: "1920 * 1920 pixels per eye (3640 x 1920 pixels in total)",
-    badges: [
-      {
-        emoji: "☀️",
-        label: "Sunny weather",
-      },
-      {
-        emoji: "🦓",
-        label: "Onsite zoo",
-      },
-      {
-        emoji: "🌊",
-        label: "Sea",
-      },
-      {
-        emoji: "🌲",
-        label: "Nature",
-      },
-      {
-        emoji: "🤽",
-        label: "Water sports",
-      },
-    ],
   };
   return (
     <>
@@ -106,81 +115,19 @@ const RecommendedProducts = () => {
           </Button>
         </Group>
         <Grid>
-          <Col span={span}>
-            <ProductCard
-              image={images.img1}
-              badges={data.badges}
-              country={data.country}
-              description={data.description}
-              title={data.title}
-            />
-          </Col>
-          <Col span={span}>
-            <ProductCard
-              image={images.img2}
-              badges={data.badges}
-              country={data.country}
-              description={data.description}
-              title={data.title}
-            />
-          </Col>
-          <Col span={span}>
-            <ProductCard
-              image={images.img3}
-              badges={data.badges}
-              country={data.country}
-              description={data.description}
-              title={data.title}
-            />
-          </Col>
-          <Col span={span}>
-            <ProductCard
-              image={images.img4}
-              badges={data.badges}
-              country={data.country}
-              description={data.description}
-              title={data.title}
-            />
-          </Col>
+          {imgArray.map((item) => {
+            return (
+              <Col m={"auto"} span={span} key={item.id}>
+                <ProductCard
+                  image={item.img}
+                  country={data.country}
+                  description={data.description}
+                  title={data.title}
+                />
+              </Col>
+            );
+          })}
         </Grid>
-        {/* <Grid>
-          <Col span={span}>
-            <ProductCard
-              image={images.img5}
-              badges={data.badges}
-              country={data.country}
-              description={data.description}
-              title={data.title}
-            />
-          </Col>
-          <Col span={span}>
-            <ProductCard
-              image={images.img6}
-              badges={data.badges}
-              country={data.country}
-              description={data.description}
-              title={data.title}
-            />
-          </Col>
-          <Col span={span}>
-            <ProductCard
-              image={images.img7}
-              badges={data.badges}
-              country={data.country}
-              description={data.description}
-              title={data.title}
-            />
-          </Col>
-          <Col span={span}>
-            <ProductCard
-              image={images.img8}
-              badges={data.badges}
-              country={data.country}
-              description={data.description}
-              title={data.title}
-            />
-          </Col>
-        </Grid> */}
       </div>
       <div className={classes.container}>
         <Group className={classes.group} position="apart" spacing="xl">
@@ -194,81 +141,20 @@ const RecommendedProducts = () => {
             Browse all products
           </Button>
         </Group>
-        {/* <Grid>
-          <Col span={span}>
-            <ProductCard
-              image={images.img1}
-              badges={data.badges}
-              country={data.country}
-              description={data.description}
-              title={data.title}
-            />
-          </Col>
-          <Col span={span}>
-            <ProductCard
-              image={images.img2}
-              badges={data.badges}
-              country={data.country}
-              description={data.description}
-              title={data.title}
-            />
-          </Col>
-          <Col span={span}>
-            <ProductCard
-              image={images.img3}
-              badges={data.badges}
-              country={data.country}
-              description={data.description}
-              title={data.title}
-            />
-          </Col>
-          <Col span={span}>
-            <ProductCard
-              image={images.img4}
-              badges={data.badges}
-              country={data.country}
-              description={data.description}
-              title={data.title}
-            />
-          </Col>
-        </Grid> */}
+
         <Grid>
-          <Col span={span}>
-            <ProductCard
-              image={images.img5}
-              badges={data.badges}
-              country={data.country}
-              description={data.description}
-              title={data.title}
-            />
-          </Col>
-          <Col span={span}>
-            <ProductCard
-              image={images.img6}
-              badges={data.badges}
-              country={data.country}
-              description={data.description}
-              title={data.title}
-            />
-          </Col>
-          <Col span={span}>
-            <ProductCard
-              image={images.img7}
-              badges={data.badges}
-              country={data.country}
-              description={data.description}
-              title={data.title}
-            />
-          </Col>
-          <Col span={span}>
-            <ProductCard
-              image={images.img8}
-              badges={data.badges}
-              country={data.country}
-              description={data.description}
-              title={data.title}
-            />
-          </Col>
+          {imgArray2.map((item) => {
+            return (
+              <Col m={"auto"} span={span} key={item.id}>
+                <ProductCard
+                  image={item.img}
+                  country={data.country}
+                  description={data.description}
+                  title={data.title}
+                />
+              </Col>
+            );
+          })}
         </Grid>
       </div>
     </>

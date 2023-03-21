@@ -37,7 +37,7 @@ const ItemsCart = () => {
     },
   }));
 
-  const { classes, theme } = useStyles();
+  const { classes } = useStyles();
 
   return (
     <>
@@ -66,7 +66,6 @@ const ItemsCart = () => {
               </Text>
             </>
           }
-          //   placeholder="PROMO CODE"
           variant="unstyled"
         />
 

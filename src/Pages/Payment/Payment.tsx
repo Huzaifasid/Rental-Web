@@ -1,9 +1,9 @@
 import { createStyles, Grid, Text } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
-import { Box } from "tabler-icons-react";
+
 import ItemsCart from "./ItemsCart/ItemsCart";
 import PaymentDetails from "./PaymentDetails/PaymentDetails";
-import leftArrow from "../../Assets/leftDirectArrow.png";
+import leftArrow from "../../Assets/icons/leftDirectArrow.png";
 const Payment = () => {
   const useStyles = createStyles((theme) => ({
     container: {
@@ -31,7 +31,7 @@ const Payment = () => {
     },
   }));
 
-  const { classes, theme } = useStyles();
+  const { classes } = useStyles();
   const isLap = useMediaQuery("(max-width: 1024px)");
   const isMobile = useMediaQuery("(max-width: 768px)");
   const span = isMobile ? 12 : isLap ? 6 : 7;
