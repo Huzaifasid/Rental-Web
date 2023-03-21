@@ -37,8 +37,11 @@ const Sidebar = () => {
       "@media (max-width: 425px)": {
         width: "60%",
       },
-      "@media (max-width: 320px)": {
+      "@media (max-width: 375px)": {
         width: "70%",
+      },
+      "@media (max-width: 320px)": {
+        width: "80%",
       },
     },
   }));

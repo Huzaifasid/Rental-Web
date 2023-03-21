@@ -43,8 +43,11 @@ const SearchBar = () => {
     },
     firstDiv: {
       paddingLeft: "20px",
+
       "@media (max-width: 425px)": {
-        paddingLeft: "0px",
+        paddingLeft: "20px",
+        width: "100%",
+        // borderBottom: "2px solid rgba(160, 160, 167, 0.3)",
       },
     },
     searchBox: {
@@ -55,6 +58,7 @@ const SearchBar = () => {
       },
       "@media (max-width: 425px)": {
         flexDirection: "column",
+        width: "100%",
       },
     },
     border: {
@@ -63,8 +67,10 @@ const SearchBar = () => {
 
       "@media (max-width: 425px)": {
         borderLeft: "none",
+        width: "100%",
         borderTop: "2px solid rgba(160, 160, 167, 0.3)",
         padding: "20px 0px",
+        paddingLeft: "20px",
       },
     },
     btn: {
@@ -134,7 +140,7 @@ const SearchBar = () => {
             <div className={classes.border}>
               <Text fw={"bold"}>When</Text>
 
-              <Group position="center">
+              <Group>
                 <DatePickerInput
                   type="range"
                   placeholder="Select Renting Date"

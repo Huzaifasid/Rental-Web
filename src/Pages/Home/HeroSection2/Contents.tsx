@@ -67,6 +67,7 @@ const useStyles = createStyles((theme) => ({
     "@media (max-width: 425px)": {
       alignItems: "center",
       flexDirection: "column",
+      textAlign: "center",
     },
   },
 }));
