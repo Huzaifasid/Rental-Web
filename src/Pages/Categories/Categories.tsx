@@ -60,16 +60,19 @@ const Categories = () => {
       marginTop: "50px",
       display: "flex",
       justifyContent: "center",
-
       gap: "15px",
-
       "@media (max-width: 1024px)": {
         flexWrap: "wrap",
       },
     },
+    btn: {
+      "@media (max-width: 320px)": {
+        flexDirection: "column",
+      },
+    },
   }));
 
-  const { classes, theme } = useStyles();
+  const { classes } = useStyles();
   return (
     <>
       <div className={classes.container}>
@@ -77,7 +80,7 @@ const Categories = () => {
           <Text fz={"36px"} color={"#31343F"} fw="800">
             Categories
           </Text>
-          <Group>
+          <Group className={classes.btn}>
             <Button variant="outline" color="gray" radius="xl">
               <IconArrowNarrowLeft />
             </Button>

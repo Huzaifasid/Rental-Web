@@ -13,8 +13,15 @@ const useStyles = createStyles((theme) => ({
   card: {
     cursor: "pointer",
     width: "340px",
+
     backgroundColor:
       theme.colorScheme === "dark" ? theme.colors.dark[7] : theme.white,
+    "@media (max-width: 425px)": {
+      width: "300px",
+    },
+    "@media (max-width: 375px)": {
+      width: "auto",
+    },
   },
   txt: {
     color: "#979797",

@@ -106,7 +106,7 @@ const useStyles = createStyles((theme) => ({
     },
     "@media (max-width: 768px)": {
       padding: `${rem(2)} ${rem(2)}`,
-      fontSize: "0.8rem",
+      fontSize: "0.7rem",
     },
 
     [theme.fn.smallerThan("sm")]: {
