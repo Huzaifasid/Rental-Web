@@ -14,6 +14,7 @@ import { useState } from "react";
 const SearchBar = () => {
   const isLap = useMediaQuery("(max-width: 1024px)");
   const isMobile = useMediaQuery("(max-width: 768px)");
+  const isMobileS = useMediaQuery("(max-width: 425px)");
   const btn = isMobile ? "sm" : isLap ? "xl" : "xl";
 
   const useStyles = createStyles((theme) => ({
@@ -95,6 +96,7 @@ const SearchBar = () => {
     { value: "San Antonio", label: "San Antonio" },
   ]);
   const [value, setValue] = useState<[Date | null, Date | null]>([null, null]);
+
   return (
     <>
       <Container mb={"30px"}>
@@ -138,7 +140,7 @@ const SearchBar = () => {
                   placeholder="Select Renting Date"
                   value={value}
                   variant="unstyled"
-                  numberOfColumns={2}
+                  numberOfColumns={isMobileS ? 1 : 2}
                   onChange={setValue}
                 />
               </Group>
